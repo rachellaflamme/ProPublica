@@ -12,7 +12,11 @@
 
 -Rachel: I am struggling to figure which coding language we will end up using for the data scraping. Our client, Sarah, provided us with a resource Selenium which works best in python but my coding strength is in R. In addition, it’s difficult to find the resources that are most applicable to our project rather than generalized Data scraping courses.
 
+<<<<<<< HEAD
 -Ru: I’m still looking for the best way to scrape data from the USCIS website (Python vs R) as the page is responsive and does not necessarily have different endpoints for the url. It looks like the preferred method might end up being Python, but as I am more familiar with R, I've been trying to look for other packages we can use in R that will be helpful.  
+=======
+-Ru: At the time I’m writing this, my R still won’t connect to Github. Besides that, I’m still looking for the best way to scrape data from the USCIS website (Python vs R) as the page is responsive and does not necessarily have different endpoints for the url.  
+>>>>>>> 5ad101faa817ff9d22402cc8dd9c29c15ae82ac1
 
 -Maggie: trying to find out the best way to find data in the USCIS.gov, so that it can be scraped in the best way possible. We are also currently still trying to determine how this project’s trajectory as we recently had to change topics.
 
