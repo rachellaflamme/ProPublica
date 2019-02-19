@@ -11,7 +11,7 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: I am really struggling with the docker interacting with my server. I have been following along with multiple tutorials but the errors my terminal keeps responding with don't have explanations in the tutorials. I would like to work with Ru to figure out how she got the docker to interact with R with an iOS system.
 
 - Ru: At the moment, nothing? I have a question though...based off of the Working with Web Data in R, one of the instructors said that some websites are designed in the way ours is because the owners of the website may not want people to scrape data. What are the ehical issues regarding what we are doing..especially as this is a government website? 
 It could be open to students, but will ProPublica have the legal rights to claim/use the data we obtain? 
@@ -21,9 +21,10 @@ It could be open to students, but will ProPublica have the legal rights to claim
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel: I am planning on trying to get Rselenium to scrape at least the first two html pages in the uscis.gov site and save it as a file. This way, we can guarentee we can automate the process some how.
 
-- Ru:  Next week, the plan is to integrate the two tutorials we have learnt and try to get Rselenium and another web scraping package to scrape at least the first two html pages in the uscis.gov site and save it as a dataframe. 
+
+- Ru:  Docker is pretty difficult to install so we will be meeting to make sure everyone is up to date with the installation. I also plan to integrate the two tutorials we have learnt and try to get Rselenium and another web scraping package to scrape at least the first two html pages in the uscis.gov site and save it as a dataframe. 
 
 - Maggie: 
 
