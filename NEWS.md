@@ -1,3 +1,4 @@
+
 ##2019-02-18
 
 ### What did you do this week?
@@ -24,6 +25,7 @@
 - Maggie: 
 
 ##2019-02-11
+
 
 ### What did you do this week?
 
