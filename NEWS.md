@@ -7,7 +7,7 @@
 
 - Ru: Last time, I had been having troubles working with CSS selectors. So this week, I worked on the Datacamp Module(Working with Web Data in R). The module was incredibly helpful and gave me a basic understanding of xpaths, html structure and css selectors. It also gave me a chance to brush up on creating functions so that was an added advantage. Though my partners and I were not able to meet, we were able to create goals for the week and I was able to complete most of the assigned tasks for the week.  
 
-- Maggie: 
+- Maggie: A large part of the week was dedicated to creating our update prsentation, of which I wrote a lot of information on. In addition, I finished the datacamp class regarding webscraping and I feel that I now have a pretty good knowledge of the concepts, at least without any hands-on experience. Also, I did some work on RSelenium and Docker to try and understand the programs and how they work, and how they will work in the context of our project.
 
 ### What is it that you're struggling with right now?
 
@@ -17,7 +17,7 @@
 It could be open to students, but will ProPublica have the legal rights to claim/use the data we obtain? 
 
 
-- Maggie: 
+- Maggie: Currently I think our largest struggle is getting RSelenium and Docker to work and code it so we can scrape data from the web, but because of our current level of skill in regards to these programs, we are still having some problems.
 
 ### What are you planning to do next week?
 
@@ -26,7 +26,7 @@ It could be open to students, but will ProPublica have the legal rights to claim
 
 - Ru:  Docker is pretty difficult to install so we will be meeting to make sure everyone is up to date with the installation. I also plan to integrate the two tutorials we have learnt and try to get Rselenium and another web scraping package to scrape at least the first two html pages in the uscis.gov site and save it as a dataframe. 
 
-- Maggie: 
+- Maggie: Create a viable program which will begin to scrape the website for data we need, which is the main goal of this project. In order to do this, we will also have to have a firm grasp on these programs and make sure the programs are installed properly.
 
 ##2019-02-11
 
