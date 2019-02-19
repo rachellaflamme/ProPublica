@@ -5,7 +5,7 @@
 
 - Rachel: I was working with RSelenium, but in order to interact with the webpages, the Docker needs to be installed. However, my code has been constantly throwing errors. Due to one of our team members being sick this week, we were unable to meet and therefore, I was unable to work with my team mates to problem solve. I also worked on the DataCamp module of Webscraping with XPATHs. It was incredible helpful and will be able to provide a lot of progress once I get the Docker and RSelenium to react with my server. One thing that the web-module discussed is the legal ethics of this but didn't dive into those issues and i would like to discuss that in class
 
-- Ru: 
+- Ru: Last time, I had been having troubles working with CSS selectors. So this week, I worked on the Datacamp Module(Working with Web Data in R). The module was incredibly helpful and gave me a basic understanding of xpaths, html structure and css selectors. It also gave me a chance to brush up on creating functions so that was an added advantage. Though my partners and I were not able to meet, we were able to create goals for the week and I was able to complete most of the assigned tasks for the week.  
 
 - Maggie: 
 
@@ -13,14 +13,17 @@
 
 - Rachel: 
 
-- Ru: 
+- Ru: At the moment, nothing? I have a question though...based off of the Working with Web Data in R, one of the instructors said that some websites are designed in the way ours is because the owners of the website may not want people to scrape data. What are the ehical issues regarding what we are doing..especially as this is a government website? 
+It could be open to students, but will ProPublica have the legal rights to claim/use the data we obtain? 
+
+
 - Maggie: 
 
 ### What are you planning to do next week?
 
 - Rachel: 
 
-- Ru:  
+- Ru:  Next week, the plan is to integrate the two tutorials we have learnt and try to get Rselenium and another web scraping package to scrape at least the first two html pages in the uscis.gov site and save it as a dataframe. 
 
 - Maggie: 
 
