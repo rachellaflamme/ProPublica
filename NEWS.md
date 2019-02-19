@@ -11,14 +11,15 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: I am really struggling with the docker interacting with my server. I have been following along with multiple tutorials but the errors my terminal keeps responding with don't have explanations in the tutorials. I would like to work with Ru to figure out how she got the docker to interact with R with an iOS system.
 
 - Ru: 
 - Maggie: 
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel: I am planning on trying to get Rselenium to scrape at least the first two html pages in the uscis.gov site and save it as a file. This way, we can guarentee we can automate the process some how.
+
 
 - Ru:  
 
