@@ -46,7 +46,7 @@ I was able to complete steps 1-4 and 6, albeit in chunks that I think should be 
 
 
 
-##2019-02-18
+## 2019-02-18
 
 ### What did you do this week?
 
@@ -75,7 +75,7 @@ It could be open to students, but will ProPublica have the legal rights to claim
 
 - Maggie: Create a viable program which will begin to scrape the website for data we need, which is the main goal of this project. In order to do this, we will also have to have a firm grasp on these programs and make sure the programs are installed properly.
 
-##2019-02-11
+## 2019-02-11
 
 
 ### What did you do this week?
