@@ -5,15 +5,15 @@
 - Rachel:
 
 - Ru: We were able to get Docker running on all of our machines, and we met during the week to find the best ways to proceed. We also briefly spoke about switching to Python as there are more Python tutorials. This week, I decided to break down the problem into chunks in order to solve it. So I created learning goals for myself to get used to RSelenium while solving our issues. So I broke down the issue into:
-    1. Open chrome in a web browser --done
-    2. Navigate to a certain page and open it  -- done
-    3. Find the search element and input a 5 digit zipcode --done
-    4. Search. The 10 doctors should pop up --done
-    5. Scrape these and put them in dataframe --a few issues joining the dataframe
-    6. Click next                             --done
-    7. Scrape the next page and put them in dataframe --same as 5
+        1. Open chrome in a web browser --done
+        2. Navigate to a certain page and open it  -- done
+        3. Find the search element and input a 5 digit zipcode --done
+        4. Search. The 10 doctors should pop up --done
+        5. Scrape these and put them in dataframe --a few issues joining the dataframe
+        6. Click next                             --done
+        7. Scrape the next page and put them in dataframe --same as 5
 
-I was able to complete steps 1-4, albeit in chunks that I think should be made into a function. I used RSelenium for steps 1-4 and can now get my code to search a zipcode and show results. I was also able to get the code to click 'next' and 'scraped' the next 10 doctors. I attached my practice code for reference.
+I was able to complete steps 1-4 and 6, albeit in chunks that I think should be made into a function. I used RSelenium for steps 1-4 and can now get my code to search a zipcode and show results. I was also able to get the code to click 'next' and 'scraped' the next 10 doctors. I attached my practice code for reference.
 
 
 - Maggie: 
@@ -22,12 +22,12 @@ I was able to complete steps 1-4, albeit in chunks that I think should be made i
 - Rachel: 
 
 - Ru: 
-1. My draft code still needs to be developed. Using what I've used so far, it would be a repetition of the same code over and over again so I am trying to think of the best way I can create a for-loop without breaking the system since the endpoint has no url.Ideally, my pseudocode would have something like "for i in length of pages", but I'm still a little confused on how to do this.
+        1. My draft code still needs to be developed. Using what I've used so far, it would be a repetition of the same code over and over again so I am trying to think of the best way I can create a for-loop without breaking the system since the endpoint has no url.Ideally, my pseudocode would have something like "for i in length of pages", but I'm still a little confused on how to do this.
 
-2. I am having issues pasting the results to each other into a single dataframe because some of the practices have multiple doctors and this is being returned as NA. 
-3. My scraping code. I have been looking for a way to extract multiple classes at once under the div "col-span-10", but these come as columns so I need help looking for a better way to scrape the data. Right now, it seems like the code would just be running on the same page over and over again and this would be redundant. I'm also afraid it may also eventually take more time and memory. 
-4. I still need a little more time figuring out how to combine rvest and RSelenium together so at the moment, I just have diffent chunks of code. I don't know the best way to piece everything together. 
-5. I forgot how to write functions and for-loops in R, so I need to brush up on that. 
+        2. I am having issues pasting the results to each other into a single dataframe because some of the practices have multiple doctors and this is being returned as NA. 
+        3. My scraping code: I have been looking for a way to extract multiple classes at once under the div "col-span-10", but these come as individual rows so I need help looking for a better way to scrape the data. Right now, it seems like the code would just be running on the same page over and over again and this would be redundant. I'm also afraid it may also eventually take more time and memory. 
+        4. I still need a little more time figuring out how to combine rvest and RSelenium together so at the moment, I just have many  chunks of code. I don't know the best way to piece everything together. 
+        5. I forgot how to write functions and for-loops in R, so I need to brush up on that. 
 
 
 - Maggie: 
