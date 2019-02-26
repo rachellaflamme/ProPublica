@@ -2,7 +2,7 @@
 
 ### What did you do this week?
 
-- Rachel:
+- Rachel: As a team, we were able to get docker running on each of our laptops. We met on Friday to discuss the best way to tackle the problem. We discussed switching over to Python because Selenium in Python has more thorough documentation as opposed to R where we only found one pdf where some of the code is defunct although it says it was written on January 3, 2019. I individually worked on the project and was able to interact with the website through R and was working on typing various zipcodes into the search bar to have the entirety of the steps automated. In addition, I was analyzing the various xpaths in the HTML pages that I have scraped in order to figure out how to animate this process.
 
 - Ru: We were able to get Docker running on all of our machines, and we met during the week to find the best ways to proceed. We also briefly spoke about switching to Python as there are more Python tutorials. This week, I decided to break down the problem into chunks in order to solve it. So I created learning goals for myself to get used to RSelenium while solving our issues. So I broke down the issue into:
         1. Open chrome in a web browser --done
@@ -19,7 +19,7 @@ I was able to complete steps 1-4 and 6, albeit in chunks that I think should be 
 - Maggie: 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: The biggest hurdle that I have is just to push through the code errors I have been getting. They have been "easy" fixes but they have been harder to debug since the entire team is unfamiliar with RSelenium. I still have to figure out how to reformat the already scraped data that has exceptions. i.e. when one hospital has multiple authorized doctors. (but that is also an easy fix that just takes time)
 
 - Ru: 
         1. My draft code still needs to be developed. Using what I've used so far, it would be a repetition of the same code over and over again so I am trying to think of the best way I can create a for-loop without breaking the system since the endpoint has no url.Ideally, my pseudocode would have something like "for i in length of pages", but I'm still a little confused on how to do this.
@@ -34,7 +34,7 @@ I was able to complete steps 1-4 and 6, albeit in chunks that I think should be 
 
 ### What are you planning to do next week?
 
-- Rachel:
+- Rachel: Just carving out time to push through the problems and sit and code. It seems we are in the stage that we know what to do and just need to do it. It would be best if there was a hackathon but self-discipline is the next best thing.
 
 - Ru:  Meet with my partners to finalize which language we are using. I need to merge the chunks of code into a for-loop that iterates through all the pages of the websites. To do this, I will write some kind of steps again, as I noticed this helped this week, create a pseudocode for what my loop should do and how it should run and get the for-loop running. I also need to brush up on R functions, for-loops and find a way to deal with situations where we have multiple doctors so the result ends up being missing.This should probably be the first step so as to create a dataframe for the first twenty doctors.
 
