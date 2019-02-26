@@ -16,7 +16,8 @@
 I was able to complete steps 1-4 and 6, albeit in chunks that I think should be made into a function. I used RSelenium for steps 1-4 and can now get my code to search a zipcode and show results. I was also able to get the code to click 'next' and 'scraped' the next 10 doctors. I attached my practice code for reference.
 
 
-- Maggie: 
+- Maggie: At the beginning of the week, I primarily focused on getting Docker and RSelenium working on my computer, similarly to the rest of my group. While Docker installed without any problems and seems to be working correctly, I, like the rest of my group, was facing some problems when it came to using the code related to RSelenium. I proposed trying to use the Python version of Selenium, because of the errors we encountered using the R version of this program did not have answers available to solve them (problems related to code being out of date, etc), and we were unsure of how to fix this problem. Currently, I am doing research on the Python version of this program and trying to determine its ease of use, and seeing if it is a viable change to make.
+
 ### What is it that you're struggling with right now?
 
 - Rachel: The biggest hurdle that I have is just to push through the code errors I have been getting. They have been "easy" fixes but they have been harder to debug since the entire team is unfamiliar with RSelenium. I still have to figure out how to reformat the already scraped data that has exceptions. i.e. when one hospital has multiple authorized doctors. (but that is also an easy fix that just takes time)
@@ -30,7 +31,7 @@ I was able to complete steps 1-4 and 6, albeit in chunks that I think should be 
         5. I forgot how to write functions and for-loops in R, so I need to brush up on that. 
 
 
-- Maggie: 
+- Maggie: We are still having problems related to getting Selenum to work in R. I think my entire group would rather use this program than the version in Python, because we are all more familiar with R and feel we would likely be able to troubleshoot smaller problems with this program, but the lack of information related to Selenium seems to be causing us problems. As a result, I have encountered some issues with the Python version and I am finding it is taking longer to solve them.
 
 ### What are you planning to do next week?
 
@@ -40,7 +41,7 @@ I was able to complete steps 1-4 and 6, albeit in chunks that I think should be 
 
 
 
-- Maggie: 
+- Maggie: As others have said, mainly trying to create a final code in order to scrape the website. In addition, I want to decide what program my group would like to use and, whatever our decision is, do more research on what is the problem with what we are attempting to code.
 
 
 
