@@ -13,7 +13,7 @@
     6. Click next                             --done
     7. Scrape the next page and put them in dataframe --same as 5
 
-I was able to complete steps 1-4, albeit in chunks that I think should be made into a function. I used RSelenium for steps 1-4 and can now get my code to search a zipcode and show results. I was also able to get the code to click 'next' and 'scraped' the next 10 doctors. 
+I was able to complete steps 1-4, albeit in chunks that I think should be made into a function. I used RSelenium for steps 1-4 and can now get my code to search a zipcode and show results. I was also able to get the code to click 'next' and 'scraped' the next 10 doctors. I attached my practice code for reference.
 
 
 - Maggie: 
