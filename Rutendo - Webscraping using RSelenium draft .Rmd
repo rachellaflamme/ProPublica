@@ -1,5 +1,5 @@
 ---
-title: "Final Practice in R"
+title: "Practice in R"
 author: "Ru"
 date: "2/25/2019"
 output: html_document
@@ -13,7 +13,7 @@ library(rvest)
 library(dplyr)
 ```
 
-Goals for the page:
+Goals for the week:
 Using RSelenium: 
   >Open chrome in a web browser --done
   >Navigate to a certain page and open it  -- done
@@ -24,82 +24,30 @@ Using RSelenium:
     > Find a way to put these in a data frame  -- still working. 
   > Click next  -- done 
 
-#First step: Opening chrome in a web browser, and navigating to our page  
-
-```{r}
-url = "https://my.uscis.gov/findadoctor"
-
-rD <- rsDriver()
-   remDr <- rD[["client"]]
-   remDr$navigate(url)
-   #remDr$screenshot(display = TRUE)
-   remDr$close()
-   # stop the selenium server
-   rD[["server"]]$stop()
-```
-
-#Step 2: Interacting with a dom. Find the search element
-
-
-#working with web element class: This inputs the zipcode 01063 into our chrome browser and bring back the 10 doctors near this zipcode 
-```{r}
-webElems <- remDr$findElement("css selector","#form_data_search_location")
-webElems$sendKeysToElement(list("01063","\uE007"))
-```
-
-#Find a way to get the doctors' information: Combining RSelenium and rvest 
-```{r}
-doctors = xml2::read_html(remDr$getPageSource()[[1]])%>%
-  rvest::html_nodes(".name")%>%
-  rvest::html_text(trim = TRUE)%>%
-  dplyr::data_frame(doctor_name = .)
-address <- xml2::read_html(remDr$getPageSource()[[1]])%>%
-  html_nodes(".address_top")%>%
-  html_text(trim = TRUE)%>%
-  dplyr::data_frame(address = .)
-city <- xml2::read_html(remDr$getPageSource()[[1]])%>%
-  html_nodes(".address_bottom")%>%
-  html_text(trim = TRUE)%>%
-  dplyr::data_frame(city = .)
-phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
-  html_nodes(".telephone")%>%
-  html_text(trim = TRUE)%>%
-  dplyr::data_frame(phone_number = .)
-
-```
-
-
-#trying to get everything by just using div:
-```{r}
-# trial = xml2::read_html(remDr$getPageSource()[[1]])%>%
-#   rvest::html_nodes(".col-span-10")%>%
-#   rvest::html_children()#%>%
-#   rvest::html_text()#$%>%
-#   dplyr::data_frame(trial = .)
-# trial
-```
-
-
-#Find the next button and click it
-
-
 #Find a way to get the doctors' information: Combining RSelenium and rvest 
 ```{r}
 url = "https://my.uscis.gov/findadoctor"
 
+#First step: Opening chrome in a web browser, and navigating to our page
 rD <- rsDriver()
    remDr <- rD[["client"]]
    #navigate to the webpage 
    remDr$navigate(url)
+   
+   
    #find the search bar where we put in zipcode
    zipElem <- remDr$findElement("css selector","#form_data_search_location")
    #let RSelenium type in the zipcode and search 
-   zipElem$sendKeysToElement(list("01063","\uE007")) #"\uE007" is the key for "ENTER"
+   zipElem$sendKeysToElement(list("01063","\uE007")) 
+   
+   #"\uE007" is the key for "ENTER"
 
 ```
 
+#scrape using rvest
+
 ```{r}
-   #scrape using rvest
+
 doctors = xml2::read_html(remDr$getPageSource()[[1]])%>%
   rvest::html_nodes(".name")%>%
   rvest::html_text(trim = TRUE)%>%
@@ -116,27 +64,40 @@ phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".telephone")%>%
   html_text(trim = TRUE)%>%
   dplyr::data_frame(phone_number = .)
-
+##example
+doctors
 ```
 
-
+#on to the next button ...
 ```{r}
+#find what css selector the 'NEXT' button uses 
 nextBtn <- remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")
+
+#click the next button
 nextBtn$clickElement()
 ```
 
+#Is it reading doctors 11-21? 
 ```{r}
+#scrape the next page
 doc = xml2::read_html(remDr$getPageSource()[[1]])%>%
   rvest::html_nodes(".name")%>%
   rvest::html_text(trim = TRUE)%>%
   dplyr::data_frame(doctor_name = .)
+doc
 ```
 
+
+#close and stop the server
 ```{r}
 remDr$close()
    # stop the selenium server
    rD[["server"]]$stop()
 ```
 
-
+#Next steps:
+  1. Try piecing the two together in a function. This step will involve many other steps. 
+  2. See if you can use the div class "col-span-10" to just scrape everything at once(I tried it once and it's returning rows not columns)
+  3. Create a for-loop 
+  
 
