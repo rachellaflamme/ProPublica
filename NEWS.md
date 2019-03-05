@@ -1,3 +1,46 @@
+## 2019-02-18
+
+### What did you do this week?
+
+- Rachel: 
+- Ru: 
+- Maggie: 
+
+### What is it that you're struggling with right now?
+
+- Rachel: 
+
+- Ru: 
+
+
+- Maggie: 
+
+### What are you planning to do next week?
+
+- Rachel: 
+
+- Ru:  
+
+
+
+- Maggie: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##2019-02-25
 
 ### What did you do this week?
