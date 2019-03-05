@@ -3,15 +3,29 @@
 ### What did you do this week?
 
 - Rachel: 
-- Ru: 
+
+- Ru: I tried working on some if and while statements to scrape the multiple doctors. I also tried getting the code we have so far to automate so we can loop over and move to the next button.  We also sent an update to Sophie and are waiting to hear from her.  
+
 - Maggie: 
 
 ### What is it that you're struggling with right now?
 
 - Rachel: 
 
-- Ru: 
+- Ru: I still can't get the if statement to scrape correctly. So far, all it does is get just one of the three doctors' names that are provided. I thought this was because an if statement only runs through once, so I tried using a while loop, but this is also throwing an error. 
+Other issue I'm having is automating the 'next' button. For this, I tried putting it in an infinite loop that will run until we reach the last 'next' button but this isn't working. I also realized that the next button has an element/ attribute that says "go-to-page = (the number of the next page)" so I thought this may be put it in a while loop but I don't know how to extract the selector/xpath as it contains a button and some text. 
 
+So far this is what we are using:
+  "#populated_addresses > div:nth-child(11) > div > div.next > button"
+
+This is the element I'm trying to work with...if it works: 
+
+<button data-type="pagination-button" data-go-to-page="2" class="uscis-button uscis-button-clear paginate_next" type="button" onclick="$(this).ga_event('', 'click', 'Next Page - Button');">
+          Next<span class="fa fa-icon-right fa-chevron-right"></span>
+        </button>
+        
+I'm not sure what the data-go-to-page="2" is but it looks useful. 
+  
 
 - Maggie: 
 
@@ -19,9 +33,7 @@
 
 - Rachel: 
 
-- Ru:  
-
-
+- Ru: For this week, I'm just going to focus on trying to get the next button to keep moving. I tried the if statement for extracting the multiple doctors and it's not working, but I think this can be something we can solve later after the basic code is fully functional.  
 
 - Maggie: 
 
