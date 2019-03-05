@@ -6,7 +6,7 @@
 
 - Ru: I tried working on some if and while statements to scrape the multiple doctors. I also tried getting the code we have so far to automate so we can loop over and move to the next button.  We also sent an update to Sophie and are waiting to hear from her.  
 
-- Maggie: 
+- Maggie: I focused on trying to get the code to work on my device. I got an error every time I ran it relating to ports. I have checked all relevant packages, re-downloaded docker in order to determine if there was a problem with that program, and done everything that seemed like it could be relevant when searching for the error. I plan to speak with Professor Crouser it see if he can help me with this problem, and past that, will try to get it to work on a Smith computer.
 
 ### What is it that you're struggling with right now?
 
@@ -27,7 +27,7 @@ This is the element I'm trying to work with...if it works:
 I'm not sure what the data-go-to-page="2" is but it looks useful. 
   
 
-- Maggie: 
+- Maggie: Getting the code to work on my device. I would prefer to work on this project on my own computer, but at this point it looks like, if I will be able to use this code at all, it is likely that I will be using another computer. I am still trying to figure out why it is working for my group members but not for me, which I feel is also a problem for all of us because it will be more difficult to scrape the entire website if only two people can work on this.
 
 ### What are you planning to do next week?
 
@@ -35,7 +35,7 @@ I'm not sure what the data-go-to-page="2" is but it looks useful.
 
 - Ru: For this week, I'm just going to focus on trying to get the next button to keep moving. I tried the if statement for extracting the multiple doctors and it's not working, but I think this can be something we can solve later after the basic code is fully functional.  
 
-- Maggie: 
+- Maggie: This depends on if I or someone else can get this code to work on any device. If I can get the code to run somehow, I will be helping my group and working on refining the code and beginning web scraping. If not, I will be working on other aspects of the project that do not necessarily need this code.
 
 
 
