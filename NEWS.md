@@ -2,7 +2,7 @@
 
 ### What did you do this week?
 
-- Rachel: 
+- Rachel: I worked with Ru on the if statements to work on the exceptions in the html scraping and properly building the data frame. In addition, I learned mapping in Data camp in order to implement it in our algorithm. I also wrote an email to Sophie in order to update her on our progress on the project. We felt that it was not necessary to meet virtually and an email would suffice. I also set up an appointment with Albert Kim to work on for loops.
 
 - Ru: I tried working on some if and while statements to scrape the multiple doctors. I also tried getting the code we have so far to automate so we can loop over and move to the next button.  We also sent an update to Sophie and are waiting to hear from her.  
 
@@ -10,7 +10,7 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: We are struggling with putting our outputs together. We can scrape all information from the medical institutions that only have one doctor. Or we can scrape all the information from medical institutions with multiple doctors; however, we still have no combined the two outputs together. We also are having trouble with building a for loop to click the "next" button but we do have a psuedocode of what we could potentially do to solve this problem.
 
 - Ru: I still can't get the if statement to scrape correctly. So far, all it does is get just one of the three doctors' names that are provided. I thought this was because an if statement only runs through once, so I tried using a while loop, but this is also throwing an error. 
 Other issue I'm having is automating the 'next' button. For this, I tried putting it in an infinite loop that will run until we reach the last 'next' button but this isn't working. I also realized that the next button has an element/ attribute that says "go-to-page = (the number of the next page)" so I thought this may be put it in a while loop but I don't know how to extract the selector/xpath as it contains a button and some text. 
@@ -31,7 +31,7 @@ I'm not sure what the data-go-to-page="2" is but it looks useful.
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel: This week, I am planning to still work through the if statements and see if we can get the appropriate output. I am also planning to meet Albert Kim to work on the for loops to hit the "next" button.
 
 - Ru: For this week, I'm just going to focus on trying to get the next button to keep moving. I tried the if statement for extracting the multiple doctors and it's not working, but I think this can be something we can solve later after the basic code is fully functional.  
 
