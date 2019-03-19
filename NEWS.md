@@ -1,16 +1,51 @@
-## 2019-02-18
-h 
+## 2019-03-19
+
+
 ### What did you do this week?
 
-- Rachel: 
+- Rachel: Prior to Spring Break, our team worked on creating the data set with the medical facilities with only one government authorized doctor. This way, we could let Propublica know we made progress and have tangible results. However, We have emailed Sohpie from ProPublica twice and have recieved no response from either email.
 
-- Ru: I tried working on some if and while statements to scrape the multiple doctors. I also tried getting the code we have so far to automate so we can loop over and move to the next button.  We also sent an update to Sophie and are waiting to hear from her.  
+- Ru: We were able to run the code and get about 1485 doctors. We also found out that there are 1655 facilities in this database. We emailed Sophie, and she hasn't responded to any of our emails. 
 
 - Maggie: 
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: I think the biggest struggle right now it just to get into the swing of things and making time for all our projects and working through the algorithm to build the medical facilities with multiple government authorized doctors.
+
+- Ru: My code broke during break. I don't know how. We also need to find out what's happening with the phone numbers becasuse we can only get a few of them before there is any error. 
+
+- Maggie: 
+
+### What are you planning to do next week?
+
+- Rachel: At the start of the project, we were asked to meet certain deliverables:
+  A CSV or Excel spreadsheet of all civil surgeons, with the following columns: NAME, ADDRESS, CITY, STATE, ZIPCODE, PHONE_NUMBER
+  A document titled “data diary” explaining your steps to collect that data, in a way that a person who’s never looked at this site before can repeat your steps and get the same spreadhseet
+  Your code (any language is fine!), with comments
+  Top level summary statistics
+  Total number of civil surgeons
+  Total number of civil surgeons by state or zipcode (or county), you can choose the grouping
+  
+Since we already have a part of the data set built, I think it would be a good time to start working on the other deliverables beyond just scraping the data set. We should also check out data for the first couple (10?) pages and see if our scraping methods are accurate and precise.
+
+- Ru: I will look at the phone number element and figure out what's wrong and how we can catch that error in our code. We also need to get the multiple doctors, though this should be fairly easy once I find out what I may have done to my code. 
+
+- Maggie: 
+
+## 2019-02-18
+
+### What did you do this week?
+
+- Rachel: I worked with Ru on the if statements to work on the exceptions in the html scraping and properly building the data frame. In addition, I learned mapping in Data camp in order to implement it in our algorithm. I also wrote an email to Sophie in order to update her on our progress on the project. We felt that it was not necessary to meet virtually and an email would suffice. I also set up an appointment with Albert Kim to work on for loops.
+
+- Ru: I tried working on some if and while statements to scrape the multiple doctors. I also tried getting the code we have so far to automate so we can loop over and move to the next button.  We also sent an update to Sophie and are waiting to hear from her.  
+
+- Maggie: I focused on trying to get the code to work on my device. I got an error every time I ran it relating to ports. I have checked all relevant packages, re-downloaded docker in order to determine if there was a problem with that program, and done everything that seemed like it could be relevant when searching for the error. I plan to speak with Professor Crouser it see if he can help me with this problem, and past that, will try to get it to work on a Smith computer.
+
+### What is it that you're struggling with right now?
+
+- Rachel: We are struggling with putting our outputs together. We can scrape all information from the medical institutions that only have one doctor. Or we can scrape all the information from medical institutions with multiple doctors; however, we still have no combined the two outputs together. We also are having trouble with building a for loop to click the "next" button but we do have a psuedocode of what we could potentially do to solve this problem.
 
 - Ru: I still can't get the if statement to scrape correctly. So far, all it does is get just one of the three doctors' names that are provided. I thought this was because an if statement only runs through once, so I tried using a while loop, but this is also throwing an error. 
 Other issue I'm having is automating the 'next' button. For this, I tried putting it in an infinite loop that will run until we reach the last 'next' button but this isn't working. I also realized that the next button has an element/ attribute that says "go-to-page = (the number of the next page)" so I thought this may be put it in a while loop but I don't know how to extract the selector/xpath as it contains a button and some text. 
@@ -27,29 +62,15 @@ This is the element I'm trying to work with...if it works:
 I'm not sure what the data-go-to-page="2" is but it looks useful. 
   
 
-- Maggie: 
+- Maggie: Getting the code to work on my device. I would prefer to work on this project on my own computer, but at this point it looks like, if I will be able to use this code at all, it is likely that I will be using another computer. I am still trying to figure out why it is working for my group members but not for me, which I feel is also a problem for all of us because it will be more difficult to scrape the entire website if only two people can work on this.
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel: This week, I am planning to still work through the if statements and see if we can get the appropriate output. I am also planning to meet Albert Kim to work on the for loops to hit the "next" button.
 
 - Ru: For this week, I'm just going to focus on trying to get the next button to keep moving. I tried the if statement for extracting the multiple doctors and it's not working, but I think this can be something we can solve later after the basic code is fully functional.  
 
-- Maggie: 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Maggie: This depends on if I or someone else can get this code to work on any device. If I can get the code to run somehow, I will be helping my group and working on refining the code and beginning web scraping. If not, I will be working on other aspects of the project that do not necessarily need this code.
 
 
 
