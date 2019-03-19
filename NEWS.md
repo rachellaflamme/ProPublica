@@ -1,7 +1,7 @@
 ## 2019-03-19
 
 
-### What did you do this week?
+### What did you do this week? 
 
 - Rachel: Prior to Spring Break, our team worked on creating the data set with the medical facilities with only one government authorized doctor. This way, we could let Propublica know we made progress and have tangible results. However, We have emailed Sohpie from ProPublica twice and have recieved no response from either email.
 
