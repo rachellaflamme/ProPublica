@@ -26,7 +26,7 @@
   Total number of civil surgeons
   Total number of civil surgeons by state or zipcode (or county), you can choose the grouping
   
-Since we already have a part of the data set built, I think it would be a good time to start working on the other deliverables beyond just scraping the data set.
+Since we already have a part of the data set built, I think it would be a good time to start working on the other deliverables beyond just scraping the data set. We should also check out data for the first couple (10?) pages and see if our scraping methods are accurate and precise.
 
 - Ru: 
 
