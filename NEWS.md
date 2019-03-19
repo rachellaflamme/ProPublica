@@ -7,7 +7,7 @@
 
 - Ru: We were able to run the code and get about 1485 doctors. We also found out that there are 1655 facilities in this database. We emailed Sophie, and she hasn't responded to any of our emails. 
 
-- Maggie: 
+- Maggie: Before spring break, I worked on troubleshooting the issue regarding getting R to run the code on my device and, in the meantime, working on aspects of the project outside of the main code that scrapes the webpage (such as, this week, the second quarter report). I was ultimately unable to get the code to run.
 
 ### What is it that you're struggling with right now?
 
@@ -15,7 +15,7 @@
 
 - Ru: My code broke during break. I don't know how. We also need to find out what's happening with the phone numbers becasuse we can only get a few of them before there is any error. 
 
-- Maggie: 
+- Maggie: I was unable to get the code to run on either device (my computer was the one with the initial problem, and my backup device will not run docker). Right now, that is still my biggest roadblock.
 
 ### What are you planning to do next week?
 
@@ -31,7 +31,7 @@ Since we already have a part of the data set built, I think it would be a good t
 
 - Ru: I will look at the phone number element and figure out what's wrong and how we can catch that error in our code. We also need to get the multiple doctors, though this should be fairly easy once I find out what I may have done to my code. 
 
-- Maggie: 
+- Maggie: Right now I am trying to find aspects of the project that do not need the primary code, so if we cannot find a solution I can still contribute. In addition, other members of my group are now having a similar problem to what I have been having, so it is imparative to find a solution.
 
 ## 2019-02-18
 
