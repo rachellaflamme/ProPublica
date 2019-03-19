@@ -39,20 +39,6 @@ I'm not sure what the data-go-to-page="2" is but it looks useful.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##2019-02-25
 
 ### What did you do this week?
