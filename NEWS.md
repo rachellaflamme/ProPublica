@@ -1,3 +1,37 @@
+## 2019-03-19
+
+### What did you do this week?
+
+- Rachel: Prior to Spring Break, our team worked on creating the data set with the medical facilities with only one government authorized doctor. This way, we could let Propublica know we made progress and have tangible results. However, We have emailed Sohpie from ProPublica twice and have recieved no response from either email.
+
+- Ru: 
+
+- Maggie: 
+
+### What is it that you're struggling with right now?
+
+- Rachel: I think the biggest struggle right now it just to get into the swing of things and making time for all our projects and working through the algorithm to build the medical facilities with multiple government authorized doctors.
+
+- Ru: 
+
+- Maggie: 
+
+### What are you planning to do next week?
+
+- Rachel: At the start of the project, we were asked to meet certain deliverables:
+  A CSV or Excel spreadsheet of all civil surgeons, with the following columns: NAME, ADDRESS, CITY, STATE, ZIPCODE, PHONE_NUMBER
+  A document titled “data diary” explaining your steps to collect that data, in a way that a person who’s never looked at this site before can repeat your steps and get the same spreadhseet
+  Your code (any language is fine!), with comments
+  Top level summary statistics
+  Total number of civil surgeons
+  Total number of civil surgeons by state or zipcode (or county), you can choose the grouping
+  
+Since we already have a part of the data set built, I think it would be a good time to start working on the other deliverables beyond just scraping the data set.
+
+- Ru: 
+
+- Maggie: 
+
 ## 2019-02-18
 
 ### What did you do this week?
