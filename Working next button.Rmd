@@ -19,7 +19,7 @@ library(dplyr)
 > Wait a little bit, until the page has loaded 
 > automatically click next using RSelenium 
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 remDr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
                                 port = 4445L,
                                 browserName = "chrome")
@@ -27,7 +27,7 @@ remDr$open()
 ```
 
 ```{r, include=FALSE}
-url = "https://my.uscis.gov/findadoctor"
+url = "https://www.google.com/"
 
 #First step: Opening chrome in a web browser, and navigating to our page
 rD <- rsDriver()
@@ -69,16 +69,20 @@ phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".telephone")%>%
   html_text(trim = TRUE)
 doc_phone = c(doc_phone,phone)
-  Sys.sleep(2)
+  Sys.sleep(1)
 remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")$clickElement()
 }
 ```
 
+
 ```{r}
 scrapeddf <- data.frame(doc_name, doc_address,doc_city)
 uscisdf <- scrapeddf[!scrapeddf$doc_name=="",]
-uscisdf <- data.frame(uscisdf, doc_phone)
-write.csv(uscisdf,"uscisdf_100.csv")
+#uscisdf <- data.frame(uscisdf, doc_phone)
+#write.csv(uscisdf,"uscisdf_demo.csv")
+View(uscisdf)
+#if we can get 89% doctors and facilities it's okay
+
 ```
 
 
