@@ -11,6 +11,7 @@ library(RSelenium)
 library(xml2)
 library(rvest)
 library(dplyr)
+library(purrr)
 ```
 
 Goals for the week:
@@ -26,10 +27,16 @@ Using RSelenium:
 
 #Find a way to get the doctors' information: Combining RSelenium and rvest 
 ```{r}
+remDr <- remoteDriver(remoteServerAddr = "localhost",
+                      port = 4445L,
+                      browserName = "chrome")
+remDr$open()
+# remDr$navigate("http://www.google.com")
+
 url = "https://my.uscis.gov/findadoctor"
 
 #First step: Opening chrome in a web browser, and navigating to our page
-rD <- rsDriver()
+rD <- rsDriver(port = 4445L, browser = "chrome", version = "latest", chromever = "latest", geckover = "latest", verbose = TRUE)
    remDr <- rD[["client"]]
    #navigate to the webpage 
    remDr$navigate(url)
@@ -41,30 +48,60 @@ rD <- rsDriver()
    zipElem$sendKeysToElement(list("01063","\uE007")) 
    
    #"\uE007" is the key for "ENTER"
-
+?rsDriver
 ```
 
 #scrape using rvest
 
 ```{r}
-
 doctors = xml2::read_html(remDr$getPageSource()[[1]])%>%
-  rvest::html_nodes(".name")
+  rvest::html_nodes(".name")%>%
+  rvest::html_text(trim = TRUE)%>%
+  dplyr::data_frame(doctor_name = .)
 doctors
-#%>%
- # rvest::html_text(trim = TRUE)
-#%>%
- # dplyr::data_frame(doctor_name = .)
+#rvest::html_nodes(".name")
 
-if (is.na(rvest::html_nodes(".name"))) {
-  doctors
-  
-}
+#html_text(doctors) %>% purrr::map_int(nchar) == 0
+
+test = xml2::read_html(remDr$getPageSource()[[1]]) %>%
+       html_nodes(".doctor-name") %>%
+       html_text(trim = TRUE) %>%
+       dplyr::data_frame(test = .)
+View(test)
+
+doctor_test <-xml2::read_html(remDr$getPageSource()[[1]]) %>%
+  html_nodes(".doctor-name") %>%
+  html_text(trim = TRUE)
+```
+
+```{r}
+#if statement to scrape medical facilities with multiple doctors
+ifelse(xml2::read_html(remDr$getPageSource()[[1]])%>%
+  rvest::html_nodes(".name")%>%
+  rvest::html_text(trim = TRUE)%>% purrr::map_int(nchar) == 0,
+  doctor_test<-xml2::read_html(remDr$getPageSource()[[1]]) %>%
+  html_nodes(".doctor-name") %>%
+  html_text(trim = TRUE),
+  doctor_help<-xml2::read_html(remDr$getPageSource()[[1]])%>%
+    rvest::html_nodes(".name")%>%
+    rvest::html_text(trim = TRUE))
+doctor_test
+doctor_help
+
+ 
+  xml2::read_html(remDr$getPageSource()[[1]]) %>%
+  html_nodes(".doctor-name col-span-8") %>%
+  html_text(trim = TRIM) %>%
+  dplyr::data_frame(test = .)
+  print("Im done")
+
   
 #  find: class = doctors-div
 #  doctor-name col-span-8
 #  doctor-telephone
+```
 
+```{r}
 address <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".address_top")%>%
   html_text(trim = TRUE)%>%
@@ -78,19 +115,28 @@ phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_text(trim = TRUE)%>%
   dplyr::data_frame(phone_number = .)
 ##example
-doctors
+phone
 
 scrapeddf <- data.frame(doctors, address,city)
-scrapeddf
+
+uscisdf <- scrapeddf[!scrapeddf$doctor_name=="",]
+uscisdf <- data.frame(uscisdf, phone)
 ```
+
+```{r}
+
+```
+
 
 #on to the next button ...
 ```{r}
 #find what css selector the 'NEXT' button uses 
 nextBtn <- remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")
-
+class(nextBtn)
 #click the next button
 nextBtn$clickElement()
+
+#while loops
 ```
 
 #Is it reading doctors 11-21? 
