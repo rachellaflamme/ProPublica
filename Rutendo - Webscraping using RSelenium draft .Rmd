@@ -26,7 +26,6 @@ Using RSelenium:
     > Find a way to put these in a data frame  -- still working. 
   > Click next  -- done 
 
-<<<<<<< HEAD
 #Find a way to get the doctors' information: Combining RSelenium and rvest 
 ```{r}
 remDr <- remoteDriver(remoteServerAddr = "localhost",
@@ -35,8 +34,8 @@ remDr <- remoteDriver(remoteServerAddr = "localhost",
 remDr$open()
 # remDr$navigate("http://www.google.com")
 
-=======
 #Find a way to get the doctors' information: Combining RSelenium and rvest
+```
 
 ```{r, include=FALSE}
 remDr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
@@ -46,7 +45,6 @@ remDr$open()
 ```
 
 ```{r, include=FALSE}
->>>>>>> af75bf0d60842a2d4dba9dbd0c645521975a05fd
 url = "https://my.uscis.gov/findadoctor"
 
 #First step: Opening chrome in a web browser, and navigating to our page
@@ -62,9 +60,8 @@ rD <- rsDriver(port = 4445L, browser = "chrome", version = "latest", chromever =
    zipElem$sendKeysToElement(list("01063","\uE007")) 
    
    #"\uE007" is the key for "ENTER"
-<<<<<<< HEAD
+
 ?rsDriver
-=======
 ```
 
 data-go-to-page="2"
@@ -72,7 +69,6 @@ html_attr()
 ```{r}
 #xml2::read_html(remDr$getPageSource()[[1]])%>%
  #   rvest::html_attr(".data-go-to-page")
->>>>>>> af75bf0d60842a2d4dba9dbd0c645521975a05fd
 ```
 
 
@@ -83,7 +79,6 @@ doctors = xml2::read_html(remDr$getPageSource()[[1]])%>%
   rvest::html_nodes(".name")%>%
   rvest::html_text(trim = TRUE)%>%
   dplyr::data_frame(doctor_name = .)
-<<<<<<< HEAD
 doctors
 #rvest::html_nodes(".name")
 
@@ -126,8 +121,7 @@ doctor_help
 #  doctor-name col-span-8
 #  doctor-telephone
 ```
-=======
->>>>>>> af75bf0d60842a2d4dba9dbd0c645521975a05fd
+
 
 ```{r}
 address <- xml2::read_html(remDr$getPageSource()[[1]])%>%
@@ -144,7 +138,6 @@ phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".telephone")%>%
   html_text(trim = TRUE)%>%
   dplyr::data_frame(phone_number = .)
-<<<<<<< HEAD
 ##example
 phone
 
@@ -155,8 +148,6 @@ uscisdf <- data.frame(uscisdf, phone)
 ```
 
 ```{r}
-
-=======
 doctors
 ```
 
@@ -170,7 +161,6 @@ ifelse(xml2::read_html(remDr$getPageSource()[[1]])%>%
 xml2::read_html(remDr$getPageSource()[[1]])%>%
     rvest::html_nodes(".name")%>%
     rvest::html_text(trim = TRUE))
->>>>>>> af75bf0d60842a2d4dba9dbd0c645521975a05fd
 ```
 
 
