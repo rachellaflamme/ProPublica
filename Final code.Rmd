@@ -13,6 +13,10 @@ library(xml2)
 library(rvest)
 library(dplyr)
 ```
+After installing Docker, run the following commands in your RStudio Terminal:
+docker run -d -p 4445:4444 selenium/standalone-chrome
+docker ps
+
 
 > Create a next button
 > Click next 
