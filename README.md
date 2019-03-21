@@ -16,4 +16,9 @@ These following steps are written for Macbook users:
 In addition, download and install Docker using the following link:
 https://docs.docker.com/docker-for-mac/install/
 
-Create an account with desired username and password
+Create an account with desired username and when you complete this process, the following whale icon will appear in the top right corner of the screen.
+
+![](Screen Shot 2019-02-19 at 1.13.55 PM.png)
+
+
+
