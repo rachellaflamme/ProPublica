@@ -24,6 +24,7 @@ docker ps
 > automatically click next using RSelenium 
 
 ```{r, include = FALSE}
+#create a port and open chrome through R
 remDr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
                                 port = 4445L,
                                 browserName = "chrome")
@@ -31,6 +32,7 @@ remDr$open()
 ```
 
 ```{r, include=FALSE}
+#url we want to open in R
 url = "https://www.google.com/"
 
 #First step: Opening chrome in a web browser, and navigating to our page
@@ -48,44 +50,51 @@ rD <- rsDriver()
 
 #using for loop to click next 
 ```{r}
+#empty vector to populate when running the for loop
 doc_name = c()
 doc_address = c()
 doc_city = c()
 doc_phone = c()
 
+#for loop where x in 1:x determines number of pages that RSelenium is reading. This for loop collects the doctors and facilites where there is one authorized doctor for that facility
 for(i in 1:10){
+#collects doctor names
 names = xml2::read_html(remDr$getPageSource()[[1]])%>%
   rvest::html_nodes(".name")%>%
   rvest::html_text(trim = TRUE)
 doc_name = c(doc_name,names)
-
+#collects doctor's facities address
 address <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".address_top")%>%
   html_text(trim = TRUE)
 doc_address = c(doc_address,address)
-
+#collects doctor's facities city
 city <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".address_bottom")%>%
   html_text(trim = TRUE)
 doc_city = c(doc_city, city)
-
+#collects doctor's facility's phone number
 phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
   html_nodes(".telephone")%>%
   html_text(trim = TRUE)
 doc_phone = c(doc_phone,phone)
+#pause for 1 second before re-running the for loop
   Sys.sleep(1)
+ #click the next button
 remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")$clickElement()
 }
 ```
 
 
 ```{r}
+#combining vectors doc_name, doc_address, doc_city in one data frame
 scrapeddf <- data.frame(doc_name, doc_address,doc_city)
+#remove all entries that have multiple doctors in one facility. This is done because all the facilities that have multiple doctors end up having a blank space in doctor name.
 uscisdf <- scrapeddf[!scrapeddf$doc_name=="",]
-#uscisdf <- data.frame(uscisdf, doc_phone)
+
+#uscisdf <- data.frame(uscisdf, doc_phone) #phone numbers still have discrepancies
 #write.csv(uscisdf,"uscisdf_demo.csv")
 View(uscisdf)
-#if we can get 89% doctors and facilities it's okay
 
 ```
 
