@@ -7,7 +7,7 @@
 
 - Ru: We finally figured out why our code had stopped working. Chrome versions had changed without our knowledge. Sophie emailed us back and we are still working on when to work with her. I tried looking at the phone number problem. It turns out that for the facilities/ doctors that don't have phone numbers, the phone number html element doesn't even exist. A manual check verified that number 32(Dr. Thomas Brown does not have a phone number), number 188 (Dr. Mike Pappas) (if you start your search with zipcode 01063). If you inspect the element, there is no phone number section. So far, we have 4 phone numbers missing...  
 
-- Maggie: 
+- Maggie: This week, I mainly worked on getting our codes to work properly so we could scrape the website. I believe our code is now working to a degree that we can all scrape the website adequately, but we are still having some problems finding some variables. In addition, we have been trying to contact Sophie, and we are finally at a place where we can present some data to her.
 
 ### What is it that you're struggling with right now?
 
@@ -15,7 +15,7 @@
 
 - Ru: ...And we don't know how to get these phone numbers. Another issue is that, I can only get the multiple doctors's name. However,their address information would be mixed up with the single doctor's information. 
 
-- Maggie: 
+- Maggie: I think our largest problem currently is working under time constraints because of the problems with the bugs. In addition, while the code is working, it is still not perfect, so working around those problems may also prove challenging.
 
 ### What are you planning to do next week?
 
@@ -23,7 +23,7 @@
 
 - Ru:  Try an if statement for the address information of the multiple doctors? We had been having issues with the if-statement so I can only hope this will work. 
 
-- Maggie:
+- Maggie: Work on building a dataset of all of the doctors recommended by uscis.gov that is formatted in the way Sophie wants it, as well as starting to plan the final presentation of the project if we are able to compile this list.
 
 ## 2019-03-19
 
