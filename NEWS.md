@@ -1,3 +1,30 @@
+## 2019-03-26
+
+
+### What did you do this week? 
+
+- Rachel: We finally recieved a response from Sophie! We have not yet responded because we haven't discussed our availability as a group so we can meet with her. In addition, we have worked on fixing our code because last week, all our code stopped working due to an update in the RSelenium Code and no longer aligning with the version updates in Chrome. However, we have solved this issue and are noticing more exceptions in the data such as some facilities not having phone numbers at all or doctors who work in multiple facilities which makes it harder to check repeats. We also discovered the limit in hitting the next button which is 165 pages. 
+
+- Ru:  
+
+- Maggie: 
+
+### What is it that you're struggling with right now?
+
+- Rachel: I am currently struggling with current frustration because it seems like last week we didn't get that far because we were figuring out bugs that weren't there previously. This week, I will try to get more motivation to keep going because we are really close to finishing!
+
+- Ru: 
+
+- Maggie: 
+
+### What are you planning to do next week?
+
+- Rachel: We are now going to try to build out a larger data set for the entire US for the one doctor per facility data set and Ru is currently working on the multiple doctors per facility data set.
+
+- Ru:  
+
+- Maggie:
+
 ## 2019-03-19
 
 
