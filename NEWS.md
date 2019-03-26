@@ -3,6 +3,66 @@
 
 ### What did you do this week? 
 
+- Rachel: 
+
+- Ru: Observations: The reasons we can't even pull up a blank for missing phone numbers is that for the missing phone numbers, the telephone element is actually missing. A manual check verified that number 32(Dr. Thomas Brown does not have a phone number), number 188 (Dr. Mike Pappas). Could not locate the other two doctors. Is there a way to get doctor's phone numbers on google...maybe by typing out their address(Dr Mike Pappas has a telephone number at a different location)? 
+
+- Maggie: 
+
+### What is it that you're struggling with right now?
+
+- Rachel: I think the biggest struggle right now it just to get into the swing of things and making time for all our projects and working through the algorithm to build the medical facilities with multiple government authorized doctors.
+
+- Ru: My code broke during break. I don't know how. We also need to find out what's happening with the phone numbers becasuse we can only get a few of them before there is any error. 
+
+- Maggie: I was unable to get the code to run on either device (my computer was the one with the initial problem, and my backup device will not run docker). Right now, that is still my biggest roadblock.
+
+### What are you planning to do next week?
+
+- Rachel: At the start of the project, we were asked to meet certain deliverables:
+  A CSV or Excel spreadsheet of all civil surgeons, with the following columns: NAME, ADDRESS, CITY, STATE, ZIPCODE, PHONE_NUMBER
+  A document titled “data diary” explaining your steps to collect that data, in a way that a person who’s never looked at this site before can repeat your steps and get the same spreadhseet
+  Your code (any language is fine!), with comments
+  Top level summary statistics
+  Total number of civil surgeons
+  Total number of civil surgeons by state or zipcode (or county), you can choose the grouping
+  
+Since we already have a part of the data set built, I think it would be a good time to start working on the other deliverables beyond just scraping the data set. We should also check out data for the first couple (10?) pages and see if our scraping methods are accurate and precise.
+
+- Ru: I will look at the phone number element and figure out what's wrong and how we can catch that error in our code. We also need to get the multiple doctors, though this should be fairly easy once I find out what I may have done to my code. 
+
+- Maggie: Right now I am trying to find aspects of the project that do not need the primary code, so if we cannot find a solution I can still contribute. In addition, other members of my group are now having a similar problem to what I have been having, so it is imparative to find a solution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2019-03-19
+
+
+### What did you do this week? 
+
 - Rachel: Prior to Spring Break, our team worked on creating the data set with the medical facilities with only one government authorized doctor. This way, we could let Propublica know we made progress and have tangible results. However, We have emailed Sohpie from ProPublica twice and have recieved no response from either email.
 
 - Ru: We were able to run the code and get about 1485 doctors. We also found out that there are 1655 facilities in this database. We emailed Sophie, and she hasn't responded to any of our emails. 
