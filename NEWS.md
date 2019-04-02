@@ -6,7 +6,8 @@
 - Rachel: 
  
 - Ru: Created a function that scrapes the single person data and the phone number. We have also been communicating with Sophie and meeting her this week. 
-- Maggie: 
+
+- Maggie: Mostly, I have been trying to get the code to work on my device because, while it worked for a short period last week, the problem reoccurred. Also, we as a group have been trying to get in touch with Sophie so we can update her on our progress.
 
 ### What is it that you're struggling with right now?
 
@@ -14,7 +15,7 @@
 
 - Ru: We can't get the function to get all 1511 doctors as before and can only get 10. We tried putting the function in a for loop but it's not doing anything so now we need to figure out a way to make it all work together. 
 
-- Maggie: 
+- Maggie: Working to get code working on my device as well as trying to get the code to work overall, as we are still having some problems scraping the entire database.
 
 ### What are you planning to do next week?
 
@@ -23,7 +24,7 @@
 - Ru: Meeting with Sophie and getting the for loop and function to work together.  
 
 
-- Maggie: 
+- Maggie: Meeting with Sophie and discussing what her plans for us are at this point, and getting our code stable and working so that we can scrape the website.
 
 
 ## 2019-03-26
