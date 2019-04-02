@@ -1,10 +1,38 @@
+## 2019-04-02
+
+
+### What did you do this week? 
+
+- Rachel: 
+ 
+- Ru: Created a function that scrapes the single person data and the phone number. We have also been communicating with Sophie and meeting her this week. 
+- Maggie: 
+
+### What is it that you're struggling with right now?
+
+- Rachel: 
+
+- Ru: We can't get the function to get all 1511 doctors as before and can only get 10. We tried putting the function in a for loop but it's not doing anything so now we need to figure out a way to make it all work together. 
+
+- Maggie: 
+
+### What are you planning to do next week?
+
+- Rachel: 
+
+- Ru: Meeting with Sophie and getting the for loop and function to work together.  
+
+
+- Maggie: 
+
+
 ## 2019-03-26
 
 
 ### What did you do this week? 
 
 - Rachel: We finally recieved a response from Sophie! We have not yet responded because we haven't discussed our availability as a group so we can meet with her. In addition, we have worked on fixing our code because last week, all our code stopped working due to an update in the RSelenium Code and no longer aligning with the version updates in Chrome. However, we have solved this issue and are noticing more exceptions in the data such as some facilities not having phone numbers at all or doctors who work in multiple facilities which makes it harder to check repeats. We also discovered the limit in hitting the next button which is 165 pages. 
-
+ 
 - Ru: We finally figured out why our code had stopped working. Chrome versions had changed without our knowledge. Sophie emailed us back and we are still working on when to work with her. I tried looking at the phone number problem. It turns out that for the facilities/ doctors that don't have phone numbers, the phone number html element doesn't even exist. A manual check verified that number 32(Dr. Thomas Brown does not have a phone number), number 188 (Dr. Mike Pappas) (if you start your search with zipcode 01063). If you inspect the element, there is no phone number section. So far, we have 4 phone numbers missing...  
 
 - Maggie: This week, I mainly worked on getting our codes to work properly so we could scrape the website. I believe our code is now working to a degree that we can all scrape the website adequately, but we are still having some problems finding some variables. In addition, we have been trying to contact Sophie, and we are finally at a place where we can present some data to her.
