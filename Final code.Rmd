@@ -1,7 +1,7 @@
 ---
-title: "Next button"
+title: "Code with web scraping function"
 author: "Ru"
-date: "3/4/2019"
+date: "4/1/2019"
 output: html_document
 ---
 
@@ -12,15 +12,6 @@ library(xml2)
 library(rvest)
 library(dplyr)
 ```
-After installing Docker, run the following commands in your RStudio Terminal:
-docker run -d -p 4445:4444 selenium/standalone-chrome
-docker ps
-
-
-> Create a next button
-> Click next 
-> Wait a little bit, until the page has loaded 
-> automatically click next using RSelenium 
 
 ```{r, include = FALSE}
 
@@ -31,9 +22,6 @@ remDr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
 remDr$open()
 
 ```
-
-
-
 
 ```{r, include=FALSE}
 
@@ -54,86 +42,49 @@ rD <- rsDriver(chromever ="73.0.3683.68")
    zipElem$sendKeysToElement(list("01063","\uE007"))  #"\uE007" is the key for "ENTER"
 ```
 
+```{r function to scrape data}
 
-#using for loop to click next 
-```{r}
-data <- tibble(
-  doc_name = character(),
-  multi_name =list(),
-  doc_address = character(),
-  doc_city = character(),
-  doc_phone = list()
-)
-
-
-#for loop where x in 1:x determines number of pages that RSelenium is reading. This for loop collects the doctors and facilites where there is one authorized doctor for that facility
-for(i in 1:10){
-#collects doctor names
-names = xml2::read_html(remDr$getPageSource()[[1]])%>%
-  rvest::html_nodes(".name")%>%
-  rvest::html_text(trim = TRUE)
-
-#collects multiple doctor names
-mnames = xml2::read_html(remDr$getPageSource()[[1]])%>%
-  rvest::html_nodes(".doctors-div")%>%
-  rvest::html_nodes(".doctor-name")%>%
-  rvest::html_text(trim = TRUE)
-
-
-#collects doctor's facities address
-address <- xml2::read_html(remDr$getPageSource()[[1]])%>%
-  html_nodes(".address_top")%>%
-  html_text(trim = TRUE)
-
-#collects doctor's facities city
-city <- xml2::read_html(remDr$getPageSource()[[1]])%>%
-  html_nodes(".address_bottom")%>%
-  html_text(trim = TRUE)
-
-#collects doctor's facility's phone number
-phone <- xml2::read_html(remDr$getPageSource()[[1]])%>%
-  html_nodes(".telephone")%>%
-  html_text(trim = TRUE)
-
-
-data[i, "name"] = names[i]
-data[i, "mnames"] = mnames[i]
-data[i,"address"] = address[i]
-data[i,"city"] =city[i] 
-data[i, "phone"] = phone[i]
-
-#pause for 1 second before re-running the for loop
-  Sys.sleep(1)
- #click the next button
-remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")$clickElement()
-Sys.sleep(1)
+my_fun <- function(x) {
+  name <- x %>%
+    rvest::html_nodes(".name")%>%
+    rvest::html_text(trim = TRUE)
+  address <- x %>%
+    rvest::html_nodes(".address_top")%>%
+    rvest::html_text(trim = TRUE)
+  city <- x%>%
+    html_nodes(".address_bottom")%>%
+    html_text(trim = TRUE)
+  telephone <- x %>%
+    rvest::html_nodes(".telephone")%>%
+    rvest::html_text(trim = TRUE)
+  if (length(telephone) < 1) {
+    telephone <- NA
+  }
+  return(list(name = name,
+                address = address, 
+                city = city, 
+                telephone = telephone))
 }
 ```
 
-
 ```{r}
-#combining vectors doc_name, doc_address, doc_city in one data frame
-scrapeddf <- data.frame(doc_name, doc_address,doc_city)
-uscisdf_end <- scrapeddf[!scrapeddf$doc_name=="",]
-uscisdf_phone <- data.frame(uscisdf, doc_phone)
-write.csv(uscisdf_end,"uscisdf_actual.csv")
-View(uscisdf_end)
-View(doc_phone)
-#remove all entries that have multiple doctors in one facility. This is done because all the facilities that have multiple doctors end up having a blank space in doctor name.
-uscisdf <- scrapeddf[!scrapeddf$doc_name=="",]
-
-#uscisdf <- data.frame(uscisdf, doc_phone) #phone numbers still have discrepancies
-#write.csv(uscisdf,"uscisdf_demo.csv")
-View(uscisdf)
+doctors =data.frame()
+for (i in 1:166){
+  src <- xml2::read_html(remDr$getPageSource()[[1]])
+  
+  data <- src %>%
+    rvest::html_nodes(".col-span-10") %>%
+    purrr::map_df(my_fun)
+  
+  remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")$clickElement()
+Sys.sleep(1)
+  doctors = rbind(doctors,data)
+}
+View(doctors) 
 ```
 
-
-#close and stop the server
 ```{r}
 remDr$close()
    # stop the selenium server
    rD[["server"]]$stop()
-```
-
-multiple doctors 
-doctor name is a list column 
+``` 
