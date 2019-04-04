@@ -3,7 +3,7 @@
 
 ### What did you do this week? 
 
-- Rachel: 
+- Rachel: I worked on trying to put the function that Professor Baumer helped us piece together into a for loop; however, have been still unsucessful. In addition, I've been working on splitting the city column in the data frame into the more specific components of zipcode, state, and city. We also were able to schedule a meeting with Sophie on Tuesday during class time, but I was unable to attend due to an athletic conflict.
  
 - Ru: Created a function that scrapes the single person data and the phone number. We have also been communicating with Sophie and meeting her this week. 
 
@@ -11,7 +11,7 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: I'm struggling with figuring out the logic of the function and how that logic would change as we add the for loop in it so we can have the data set that contains the 165 pages of our starting zipcode. 
 
 - Ru: We can't get the function to get all 1511 doctors as before and can only get 10. We tried putting the function in a for loop but it's not doing anything so now we need to figure out a way to make it all work together. 
 
@@ -19,7 +19,7 @@
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel: I am planning on working on the for loop with the rest of my team as well as seeing the progress of our read.me. We also need to plan when we will head to New York to give our final presentation.
 
 - Ru: Meeting with Sophie and getting the for loop and function to work together.  
 
