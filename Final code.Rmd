@@ -42,12 +42,22 @@ rD <- rsDriver(chromever ="73.0.3683.68")
    zipElem$sendKeysToElement(list("01063","\uE007"))  #"\uE007" is the key for "ENTER"
 ```
 
+
+
 ```{r function to scrape data}
 
 my_fun <- function(x) {
   name <- x %>%
     rvest::html_nodes(".name")%>%
     rvest::html_text(trim = TRUE)
+  multiple <- x%>%
+    rvest::html_nodes(".doctors-div")%>%
+    map(html_nodes, css = ".doctor-name") %>% 
+    map(html_text, trim = TRUE)%>%
+  as.list()
+  if (length(multiple) < 1) {
+     multiple <- NA
+  }
   address <- x %>%
     rvest::html_nodes(".address_top")%>%
     rvest::html_text(trim = TRUE)
@@ -62,14 +72,17 @@ my_fun <- function(x) {
   }
   return(list(name = name,
                 address = address, 
+                multiple_docs = multiple,
                 city = city, 
                 telephone = telephone))
 }
 ```
 
+
+
 ```{r}
 doctors =data.frame()
-for (i in 1:166){
+for (i in 1:3){
   src <- xml2::read_html(remDr$getPageSource()[[1]])
   
   data <- src %>%
@@ -81,7 +94,9 @@ Sys.sleep(1)
   doctors = rbind(doctors,data)
 }
 View(doctors) 
+data
 ```
+
 
 ```{r}
 remDr$close()
