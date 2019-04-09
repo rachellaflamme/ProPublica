@@ -14,7 +14,7 @@
 - Rachel: 
 - Ru: Struggling to find an efficient way to unlist the multiple doctors.  
 
-- Maggie: Working to get code working on my device as well as trying to get the code to work overall, as we are still having some problems scraping the entire database.
+- Maggie: 
 
 ### What are you planning to do next week?
 
