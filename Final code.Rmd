@@ -81,10 +81,9 @@ my_fun <- function(x) {
 ```
 
 
-
 ```{r}
 doctors =data.frame()
-for (i in 1:165){
+for (i in 1:20){
   src <- xml2::read_html(remDr$getPageSource()[[1]])
   
   data <- src %>%
@@ -96,6 +95,7 @@ Sys.sleep(1)
   doctors = rbind(doctors,data)
 }
 ```
+
 ```{r}
 remDr$close()
    # stop the selenium server
@@ -109,7 +109,15 @@ doctors <- doctors %>%
   replace_na(list(multiple_docs = "")) %>%
   unnest() %>%
   unite("doctor_name", name, multiple_docs, sep = "") %>%
-  mutate(doctor_name = gsub("NA$", "", doctor_name))
+  mutate(doctor_name = gsub("NA$", "", doctor_name)) %>%
+  mutate(zipcode = str_extract_all(city, "\\d")) %>%
+  mutate(city_test = gsub('[0-9]+', '', city)) %>%
+  mutate(state = str_sub(city_test,-3,-1)) %>%
+  mutate(city = substr(city_test, 1, nchar(city_test)-3)) %>%
+  select(doctor_name, address, city, state, zipcode, telephone)
+  
+doctors$zipcode <-map(doctors$zipcode, paste, collapse = "")
+
 write.csv(doctors,"doctors.csv")
 ```
 
