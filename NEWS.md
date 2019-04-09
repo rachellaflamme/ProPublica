@@ -7,14 +7,15 @@
 
 - Ru: Created a function that scrapes the single person data, phone number and the multiple doctors. We can eventually pull everything off the website!
 
-- Maggie: 
+- Maggie: Created a readme file so people can download relevant software to replicate the code. Worked on code to scrape multiple doctor entries.
 
 ### What is it that you're struggling with right now?
 
 - Rachel: 
+
 - Ru: Struggling to find an efficient way to unlist the multiple doctors.  
 
-- Maggie: 
+- Maggie: Getting everything together to finish the project in a reasonable amount of time.
 
 ### What are you planning to do next week?
 
@@ -23,7 +24,7 @@
 - Ru: Unlist the multiple doctors and clean up the dataset. 
 
 
-- Maggie: 
+- Maggie: Mostly work on completely scraping the website and cleaning data so it is easy to understand.
 
 
 ## 2019-04-02
