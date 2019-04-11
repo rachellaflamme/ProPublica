@@ -3,7 +3,7 @@
 
 ### What did you do this week? 
 
-- Rachel: 
+- Rachel: This week, we fixed our data collection issues with the single doctors and the misalignment of phone numbers (with a lot of help from Professor Baumer) and have also working code for the multiple doctos. Our code also cleans up the city column and splits it into a city, state, and zipcode column per the request of ProPublica.
 
 - Ru: Created a function that scrapes the single person data, phone number and the multiple doctors. We can eventually pull everything off the website!
 
@@ -11,7 +11,7 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: We just need the energy to finish the project (most likely by the end of this week) and send it to ProPublica.
 
 - Ru: Struggling to find an efficient way to unlist the multiple doctors.  
 
@@ -19,7 +19,7 @@
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel: We need to collect the doctors from various points in the US. We learned that the number of pages that we can scrape is 165 to 166. Because of this, we have to scrape from multiple points and remove the duplicates. In addition, we need to meet ProPublica's other requests such as top level summary statistics(a.k.a. Total number of civil surgeons and total number of civil surgeons by state, zipcode, or county) and write our data diary/dictionary.
 
 - Ru: Unlist the multiple doctors and clean up the dataset. 
 
