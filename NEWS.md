@@ -1,3 +1,30 @@
+## 2019-04-16
+
+
+### What did you do this week? 
+
+- Rachel: 
+
+- Ru: 
+
+- Maggie: Confirmed code was working properly and would continue to do so. Discussed possible ethical problems with what we are doing. Started working on final report for the project.
+
+### What is it that you're struggling with right now?
+
+- Rachel: 
+
+- Ru:   
+
+- Maggie: There is a minor problem with the code regarding phone numbers for multiple doctors that needs to be fixed. Otherwise, working on the final deliverable.
+
+### What are you planning to do next week?
+
+- Rachel: 
+
+- Ru: 
+
+- Maggie: Start putting data in a readable format as per ProPublica's instructions, and working on the final portions of the project.
+
 ## 2019-04-09
 
 
