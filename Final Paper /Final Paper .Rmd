@@ -1,0 +1,57 @@
+---
+title: Webscrabing Doctors' Information from the United States Immigration website as a first step to track down doctors and facilities that have been harassing immigrants
+author:
+  - name: Rutendo Madziwo
+    email: rmadziwo@smith.edu
+    affiliation: Smith College
+
+  - name: Maggie Szlosek
+    email: mszlosek@smith.edu
+    affiliation: Smith College 
+  - name: Rachel LaFlamme
+    email: rlaflamme@smith.edu
+    affiliation: Smith College
+
+abstract: Ru's working on it. 
+A paper of no more than 20 pages reporting the results of your project that includes the following:
+The research question(s)
+Background/significance of the research
+The methods used to obtain and analyze the data
+The results of the analysis (tables, charts, graphs, significance, confidence intervals, descriptive text)
+A discussion of the research, the limitations of the current research, reasonableness of any assumptions made, possibilities of future work/studies that should be conducted, etc.
+References should be listed at the end of the report and do not count against the 20 page limit.
+In addition to the 20 pages with the main content you should have a separate title page which includes: The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words.
+  
+author_summary: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+bibliography: mybibfile.bib
+output: rticles::plos_article
+csl: plos.csl
+---
+
+_Text based on plos sample manuscript, see [http://journals.plos.org/ploscompbiol/s/latex](http://journals.plos.org/ploscompbiol/s/latex)_
+
+# Introduction
+
+#Maggie's 
+The research question(s)
+Background/significance of the research
+
+#Ru's  
+The methods used to obtain and analyze the data
+The results of the analysis (tables, charts, graphs, significance, confidence intervals, descriptive text)
+
+#Maggie's 
+A discussion of the research, the limitations of the current research, reasonableness of any assumptions made, possibilities of future work/studies that should be conducted, etc.
+
+
+#Ru's
+
+The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words.
+
+
+
+Here are two sample references: @Feynman1963118 [@Dirac1953888].
+
+# References {#references .unnumbered}

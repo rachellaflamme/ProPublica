@@ -5,7 +5,7 @@
 
 - Rachel: 
 
-- Ru: 
+- Ru: Started working on final project for the paper and finalizing cleaning code.
 
 - Maggie: Confirmed code was working properly and would continue to do so. Discussed possible ethical problems with what we are doing. Started working on final report for the project.
 
@@ -13,7 +13,7 @@
 
 - Rachel: 
 
-- Ru:   
+- Ru:For some reason, our for-loop is stopping midway so we still need to figure out how to fix it. I can't tell yet if it's because of the code or the website . 
 
 - Maggie: There is a minor problem with the code regarding phone numbers for multiple doctors that needs to be fixed. Otherwise, working on the final deliverable.
 
@@ -21,7 +21,7 @@
 
 - Rachel: 
 
-- Ru: 
+- Ru: Clean/fix the code and write a data diary. 
 
 - Maggie: Start putting data in a readable format as per ProPublica's instructions, and working on the final portions of the project.
 
