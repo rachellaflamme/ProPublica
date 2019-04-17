@@ -12,8 +12,9 @@ author:
     email: rlaflamme@smith.edu
     affiliation: Smith College
 
-abstract: |
-   The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words. - Ru
+abstract: |   
+   The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words.
+
 
 bibliography: mybibfile.bib
 output: rticles::plos_article
