@@ -38,9 +38,21 @@ _Text based on plos sample manuscript, see [http://journals.plos.org/ploscompbio
 The research question(s)
 Background/significance of the research
 
-#Ru's  
-The methods used to obtain and analyze the data
-The results of the analysis (tables, charts, graphs, significance, confidence intervals, descriptive text)
+#Method 
+##Tools and Packages Used: 
+**Docker**
+Docker is a platform to develop, deploy, and run applications inside containers[insert citation] and was very useful in our project as we needed to interact with our web-browser. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome. This virtual interaction allowed us to control what was happening on the website at a given time. 
+
+We also used RSelenium - a package in R which helps one connect to a Selenium server. This server in turn connected to the Chrome web browser and hence allowed us to automate our webscraping experience. 
+
+To actually scrape our data, we used rvest and xml2 in R. We also used purrr for accuratelt mapping our datasets together and dplyr and tidyverse for text-processing and cleaning our data. 
+
+#Process
+Initially, Docker was installed before installing and loading the needed R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser via Selenium. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data. 
+
+#better? explanation 
+
+
 
 #Maggie's 
 A discussion of the research, the limitations of the current research, reasonableness of any assumptions made, possibilities of future work/studies that should be conducted, etc.
