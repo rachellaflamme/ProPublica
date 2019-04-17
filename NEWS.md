@@ -3,7 +3,7 @@
 
 ### What did you do this week? 
 
-- Rachel: 
+- Rachel: Worked on running the code for multiple areas around the US to build a fuller data set.
 
 - Ru: Started working on final project for the paper and finalizing cleaning code.
 
@@ -11,7 +11,7 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel: 
+- Rachel: We aren't sure why the number of times the code runs varies after each iteration. We are comparing our code to the website but I think we found most of the errors. This is just a personal question but should we add to our algorthim to restart and scrape from different areas around the US so it does it automatically or should we just write in the ReadMe that one can only get a full data set when they rerun the code manually using different start zipcodes.
 
 - Ru:For some reason, our for-loop is stopping midway so we still need to figure out how to fix it. I can't tell yet if it's because of the code or the website . 
 
@@ -19,7 +19,7 @@
 
 ### What are you planning to do next week?
 
-- Rachel: 
+- Rachel:  Build out the full data set, write the data diary, ask students not from the SDS or CSC departments to see if our project is understandable.
 
 - Ru: Clean/fix the code and write a data diary. 
 
