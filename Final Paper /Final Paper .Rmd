@@ -52,6 +52,14 @@ Initially, Docker was installed before installing and loading the needed R Packa
 
 #better? explanation 
 
+The advantage of using RSelenium and Docker hand in hand were that it enabled us to see what was happening to the website as we were working on it. RSelenium is responsible not only for opening and closing the browser, but it allowed us to automate most of the things we needed to do on the website. This was especially useful as our website had no endpoint urls and hence could not rely on more traditional web scraping methods. In addition, it made the process of scraping the data faster as one can simply allow the code to run and scrape multiple pages without needing to manually click the specific website. 
+
+Using RSelenium, we opened the port we created in the Docker container and opened a virtual Chrome browser. We automatically navigated to our web page by entering the website url in our code. Our webpage has a search bar, so again we took advantage of the `findElement()` command in the RSelenium and entered the desired zipcode in the search bar. We also used this command to find the `Next` button in our web page and automatically click to the next pages. At the end of the session, we used RSelenium to close and ensure that we no garbage remaining in order to save memory. 
+
+While RSelenium was responsible for most of the web manouvering, the package we used for scraping the data from each of the pages was `rvest `. This package makes harvesting data from a website easy as it can find specific html nodes, and their children. It also allows one to use both XPaths and CSS selectors so though we eventually stuck to using basic elements, we were not limited to one option. As a side note, we chose to use CSS selectors for web navigation with the RSelenium package. 
+
+We created a function to scrape this data and took advantage of the purrr package in R to map all our 
+
 
 
 #Maggie's 
