@@ -12,18 +12,8 @@ author:
     email: rlaflamme@smith.edu
     affiliation: Smith College
 
-abstract: Ru's working on it. 
-A paper of no more than 20 pages reporting the results of your project that includes the following:
-The research question(s)
-Background/significance of the research
-The methods used to obtain and analyze the data
-The results of the analysis (tables, charts, graphs, significance, confidence intervals, descriptive text)
-A discussion of the research, the limitations of the current research, reasonableness of any assumptions made, possibilities of future work/studies that should be conducted, etc.
-References should be listed at the end of the report and do not count against the 20 page limit.
-In addition to the 20 pages with the main content you should have a separate title page which includes: The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words.
-  
-author_summary: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+abstract: |
+   The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words. - Ru
 
 bibliography: mybibfile.bib
 output: rticles::plos_article
@@ -43,11 +33,15 @@ We collected the doctors' data using the package rvest for web-scraping, RSeleni
 
 Docker is a platform to develop, deploy, and run applications inside containers[@insert_citation]. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome and this enabled us to control and see what was happening on the website at a given time. Initially, Docker was installed before installing and loading the needed R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data.
 
+
 RSelenium is a package in R which helps one connect to a Selenium server. This server in turn connects to the Chrome web browser and hence allowed us to automate our webscraping experience. RSelenium is responsible not only for opening and closing the browser, but it allowed us to virtually navigate the web page and automatically control the scraping. This was especially useful as our website had no endpoint urls and hence could not rely on more traditional web scraping methods. In addition, it made the process of scraping the data faster as one can simply allow the code to run and scrape multiple pages without needing to manually click the specific website. 
+
 
 While RSelenium was responsible for most of the web manouvering, the package we used for scraping the data from each of the pages was `rvest `. This package makes harvesting data from a website easy as it can find specific html nodes, and their children. It also allows one to use both XPaths and CSS selectors so though we eventually stuck to using basic elements, we were not limited to one option. As a side note, we chose to use CSS selectors for web navigation with the RSelenium package.
 
+
 We created a function to scrape this data and took advantage of the purrr package in R to map all our scraped elements together. To clean up our data, `dplyr` and `tidyverse` were used for text-processing the such that zipcodes were in a separate column from the rest of the address in the resulting doctors' dataset. At the moment, this function is running in a for loop but will be converted to a while loop in order to allow for different state scenarios. 
+
 
 The final code written to collect the doctors' information allows a user to input one zipcode at a time in order to scrape data. Once that zipcode is entered, the doctors and facilities on that web page are harvested using `rvest` before moving on to the next page. Clicking to the next page has been automated using `RSelenium` and a for loop was implemented in our code such that for a certain number of times, the website's `Next` button is clicked, moves on to the next page, scrapes that page and so on. The website itself has been written in such a way that an actual user can keep clicking to find the nearest doctors within a 500 miles radius. As such, we have also manually entered different zipcodes in different parts of the USA so as to capture all the doctors in the country and create different datasets.
  
@@ -55,9 +49,8 @@ The final code written to collect the doctors' information allows a user to inpu
 A discussion of the research, the limitations of the current research, reasonableness of any assumptions made, possibilities of future work/studies that should be conducted, etc.
 
 
-#Ru's
 
-The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words.
+
 
 
 
