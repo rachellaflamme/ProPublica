@@ -1,6 +1,6 @@
 ---
 title: "Ethical Statement"
-author: "Rachel Laflamme, Rutendo Madziwo, &Margaret Szlosek"
+author: "Rachel Laflamme, Rutendo Madziwo, & Margaret Szlosek"
 date: "4/18/2019"
 output: html_document
 ---
