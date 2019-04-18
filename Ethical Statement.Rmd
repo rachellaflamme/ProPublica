@@ -1,0 +1,18 @@
+---
+title: "Ethical Statement"
+author: "Rachel Laflamme, Rutendo Madziwo, &Margaret Szlosek"
+date: "4/18/2019"
+output: html_document
+---
+
+Ethical dilemmas can often occur in the data science field, especially when working with others to achieve a certain goal. For this project, we are working with the news source ProPublica to compile a list of all doctors which are recommended by the US government to screen green card applicants.
+
+While we agree that this is an honorable goal, we do think that there are some potential ethical problems with this project. First, there is the issue of how we are scraping this data. We are scraping it from a government website, and although all of this information is technically publicly available, none of the doctors who have been approved consented to being included in this project. In addition, because of the nature of this project, it is not possible to anonymize the data, meaning that the final list will not only include each doctor's name, but also other sensitive information including place of employment and phone number.
+
+In addition to this problem with the data we are scraping, we also have some potential problems with transparency. While ProPublica has explained that they have a second list of doctors that have committed violations, we have not seen the list, do not know its source, and are not sure exactly what the list is of. Meaning, we are not completely sure if it is a list of doctors with claims of malpractice out against them, doctors who have had claims of malpractice against them in the past, or of doctors with confirmed cases of medical malpractice. This is important to know, because, while they are similar, there are definitely differences in each case which may mean different results within the article.
+
+We also need to consider the results of this article coming out, as there will likely be negative implications for people who are named in it. Without our contribution, these people may not have been found. While this is ultimately a positive result if there are problems with these doctor's conduct, we still need to consider our role.
+
+Finally, while we understand the initial use of this data, we cannot fully predict what it may be used for in the future. Potentially, this data could be used for nefarious purposes, which could be the reason that the government or other entities have not already made this data public.
+
+We feel that it is important to consider these multiple potential ethical problems while conducting this research. While we recognize that these problems should not be taken lightly, we agree that we should, ultimately, complete this project. We believe that the government, medical practitioners, and other people in power should be held accountable for their actions. If there are instances of malpractice that are going unchecked, this should be addressed, which is ultimately ProPublica's goal. As such, we feel that the potential benefits of our project will outweigh the potential risks involved.
