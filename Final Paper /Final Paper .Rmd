@@ -1,5 +1,5 @@
 ---
-title: Webscrabing Doctors' Information from the United States Immigration website as a first step to track down doctors and facilities that have been harassing immigrants
+title: How many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them?
 author:
   - name: Rutendo Madziwo
     email: rmadziwo@smith.edu
@@ -13,7 +13,7 @@ author:
     affiliation: Smith College
 
 abstract: |   
-   The title of the project and a one-paragraph abstract of the entire project with recommended length of no more than 150 words.
+   This project aims to scrape data from an interactive government website that has no endpoint urls using R and Docker. Our client, ProPublica wants to find out how many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them. However, they do not know who these doctors are and where they are located. Our focus is therefore to collect doctor information of all the doctors on the US immigration website by scraping the government website.   
 
 
 bibliography: mybibfile.bib
@@ -70,7 +70,7 @@ Due to the nature of our project, no statistical analysis was needed to produce 
 
 #Research Discussion
 
-At this time, we have been able to work out a code that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from [@Ru please put down how many cities you have run so far] different cities and found a total number of [@Ru please give the number of doctors you have found so far, duplicates are fine don’t worry right now] doctors. The alternative to this code would have been to manually find and log every individual doctor recommended by the website, and as such this method is both less time consuming and easier to replicate for ProPublica or, possibly, other sources in the future. 
+At this time, we have been able to work out a code that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different location including Northampton, Miami and a remote location in Arizona. The alternative to this code would have been to manually find and log every individual doctor recommended by the website, and as such this method is both less time consuming and easier to replicate for ProPublica or, possibly, other sources in the future. 
 
 This data is useful, because, based on information we received from our client, the undertaking of scraping this data from this website had not been reliably undertaken until now. This could be an important resource not just to understanding how prevalent medical malpractice is among this group of doctors immigrants are required to see, but also to find other trends possible within this group. In addition, we know that this will potentially help immigrants who are being taken advantage of by the current system, in which no protections are put in place against malpractice violations.
 
@@ -79,7 +79,7 @@ However, there were a number of limitations we have with the current research an
 In addition, this data was gathered specifically for the use of ProPublica, meaning that we may not be able to spread this data without their express permission. This puts limits on the usefulness of our code, as the data could be used for other projects and transformed if other outlets see fit, particularly because this data has never been gathered before. However, because of ProPublica’s role, we may not be able to share this information. 
 
 In addition, another potential problem is that we do not know exactly how ProPublica plans to use this data set. While we understand the underlying goal, we have not seen the list of doctors this list will be compared to and so we do not know whether or not the data will be used responsibly and ethically. While we understand ProPublica’s mission and stand by it, and trust that our data will help rather than harm people, it is still a concern that is currently on our minds.
-This dataset has the potential to help with a great many things, in addition to its intended purpose of contributing to this article on green card applicants and medical malpractice, authored by ProPublica. In addition, it could be used to compare doctors being recommended by the government to, for example, general sexual assault charges or other crimes, or just having a greater understanding of the types of medical doctors who are being recommended to immigrants. In addition to the useful information the data gathered provides, the code itself could potentially be manipulated to scrape other websites with more complex HTML formats, or at least help users gain a better understanding of how to potentially scrape these websites. In doing so, this could help to unlock other large databases that are, at this point, hidden to us and difficult to access.
+This dataset has the potential to help with many things, in addition to its intended purpose of contributing to this article on green card applicants and medical malpractice, authored by ProPublica. In addition, it could be used to compare doctors being recommended by the government to, for example, general sexual assault charges or other crimes, or just having a greater understanding of the types of medical doctors who are being recommended to immigrants. In addition to the useful information the data gathered provides, the code itself could potentially be manipulated to scrape other websites with more complex HTML formats, or at least help users gain a better understanding of how to potentially scrape these websites. In doing so, this could help to unlock other large databases that are, at this point, hidden to us and difficult to access.
 
 
 Here are two sample references: @Feynman1963118 [@Dirac1953888].
