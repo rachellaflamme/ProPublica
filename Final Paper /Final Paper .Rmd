@@ -26,7 +26,14 @@ _Text based on plos sample manuscript, see [http://journals.plos.org/ploscompbio
 # Introduction
 
 #Maggie's 
-The research question(s)
+
+#Research Questions
+
+For this project, we worked under the direct instruction of ProPublica for their article on medical malpractice among doctors recommended to green card applicants. The question they were trying to answer with this research was *How many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them?* This is the main question our research is attempting to help answer.
+
+More specifically within this project, we are trying to answer *Who are the doctors being recommended to green card applicants, and how many are there?* As there is no reliable and searchable database released by the government or any other entity that can be compared with a list of doctors with malpractice suits against them, it is our job to create this database for the use of ProPublica in their article.
+
+
 Background/significance of the research
 
 #Method 
