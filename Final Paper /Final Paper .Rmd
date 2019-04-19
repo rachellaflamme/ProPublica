@@ -22,20 +22,12 @@ output: rticles::plos_article
 csl: plos.csl
 ---
 
-_Text based on plos sample manuscript, see [http://journals.plos.org/ploscompbiol/s/latex](http://journals.plos.org/ploscompbiol/s/latex)_
-
-# Introduction
-
-
-#Research Questions
-
-For this project, we worked under the direct instruction of ProPublica for their article on medical malpractice among doctors recommended to green card applicants. The question they were trying to answer with this research was *How many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them?* This is the main question our research is attempting to help answer by supplying them data to support their assumptions.
+#Introduction 
+We worked under the direct instruction of ProPublica for their article on medical malpractice among doctors recommended to green card applicants. The question they were trying to answer with this research was *How many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them?* This is the main question our research is attempting to help answer by supplying them data to support their assumptions.
 
 More specifically within this project, we are trying to answer *Who are the doctors being recommended to green card applicants, and how many are there?*. As there is no reliable and searchable database released by the government or any other entity that can be compared with a list of doctors with malpractice suits against them, it is our job to create this database for the use of ProPublica in their article.
 
-
-#Background/significance of the research
-
+#Background 
 ProPublica is a news website that is focused on investigative journalism that "expose[s] abuses of power and betrayals of the public trust by government, business, and other institutions, using the moral force of investigative journalism to spur reform through the sustained spotlighting of wrongdoing." [@ProPublica] It was established in 2008 in New York, NY, and continues to uphold this mission statement in a variety of disciplines, including but not limited to politics, civil rights, and education.
 
 ProPublica plans on writing an upcoming article on doctors who have malpractice claims against them, but are still being recommended by the government to green card applicants. In order for an applicant to receive a green card, they must have an appointment and full examination with a state-sanctioned doctor. All of these recommended doctors can be found on the government's immigration website, my.uscis.gov/findadoctor.
@@ -48,12 +40,14 @@ Our job was to collect the names and information of all of the doctors found on 
 
 We feel that this research is significant, because, if these violations are taking place, this is a clear violation of the safety of immigrants to this country. These people are in a vulnerable position because of their status as immigrants, and thus could be taken advantage of. If this is happening, it is important to expose it, and using tools such as data analysis, which is what ProPublica will be doing with this research, can help to accomplish this.
 
-#Method 
-When receiving this project, we were asked to create a dataset based on the entries listed on the USCIS Find a Doctor website. Each entry contains the name of the medical facility, name of the government-recommended doctor or doctors, and the address and phone number of the facility. However, in order to search for a medical facility or doctor, the user needs to know the zipcode or city for the facility because the search bar can only be used to search by US zipcode or city name. If one tries to search by a doctor name or any other value, there will be no results. This creates an issue when initially thinking about how to build an algorithm because there are approximately 42,000 zipcodes in the U.S. and no guarenteed dataset that contains all the current zipcodes. In addition, if even one zipcode was missing from the dataset, we would have an incomplete dataframe to provide ProPublica. The website is structured that there are 10 entries per webpage; however, when the user clicks the next button, they can see the doctors that are from a further radius than the initially typed zipcode. They can click the next button about 165 times to span a 500 mile radius before the website no longer provides a 'next' button.
+Our aim was to create a dataset based on the entries listed on the USCIS Find a Doctor website. Each entry on the website contains the name of the medical facility, name of the government-recommended doctor or doctors, and the address and phone number of the facility. However, the search bar on the website can only be used to search for doctors using US zipcode or city name. This creates an issue when initially thinking about how to build an algorithm because there are approximately 42,000 zipcodes in the U.S. and no reliable dataset that contains all the current zipcodes. The website is also structured in such a way that there are only 10 entries per webpage; however, when the user clicks the next button, they can see the doctors that are from a further radius than the initially typed zipcode. They can click the next button to span an approximately 500 mile radius before the website no longer provides a 'next' button.
 
-In addition, the website has a static url of https://my.uscis.gov/findadoctor regardless of the search entry. For other websites, it is common to see that the search entry appears at the end of the url which would allow each url to have a single corresponding html page. However, with the USCIS site, there are thousands of html pages housed under one url. This eliminates a plethora of web-scraping options such as get() and post(), thus causing us to find a way for R to interact with the webpage in order to bypass the non-changing url but still scrape the unique html pages in order to accurately and effectively scrape the website.
+For other websites, it is common to see that the search entry appears at the end of the url which would allow each url to have a single corresponding html page. However, with the USCIS site, there are thousands of html pages housed under one url. The website has a static url of https://my.uscis.gov/findadoctor regardless of the search entry and this eliminates a plethora of web-scraping methods such as get() and post(). 
 
-Therefore, we collected the doctors' data using the package rvest for web-scraping, RSelenium for web navigation and an external platform Docker for virtual interaction with the web browser.   
+Because of this, we looked for other options for R to interact with the webpage in order to bypass the non-changing url but still scrape the unique html pages accurately and effectively.
+
+#Methods 
+We collected the doctors' data using the package rvest for web-scraping, RSelenium for web navigation and an external platform Docker for virtual interaction with the web browser.   
 
 Docker is a platform to develop, deploy, and run applications inside containers[@Docker]. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome and this enabled us to control and see what was happening on the website at a given time. Initially, Docker was installed before installing and loading the necessary R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data.
 
@@ -65,65 +59,24 @@ We created a function to scrape this data and took advantage of the purrr packag
 
 The final code written to collect the doctors' information allows a user to input one zipcode at a time in order to scrape data. Once that zipcode is entered, the doctors and facilities on that web page are harvested using `rvest` before moving on to the next page. Clicking to the next page has been automated using `RSelenium` and a for loop was implemented in our code such that for a certain number of times, the website's `Next` button is clicked, moves on to the next page, scrapes that page and so on. The website itself has been written in such a way that an actual user can keep clicking to find the nearest doctors within a 500 miles radius. As such, we have also manually entered different zipcodes in different parts of the USA so as to capture all the doctors in the country and create different datasets.
 
-#Results
+#Results 
+At this time, we have been able to work out a code that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different locations including Northampton, Miami, and a remote location in Arizona and are still scraping the other locations. Propublica  asked for a dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and have created this dataset. Since our dataset contains all categorical and string entries, minimal statistical work can be done aside from some summary statistics of the number of doctors scraped per zipcode, state, etc.(Results to follow)
 
-Due to the nature of our project, no statistical analysis was needed to produce our final outcome. Propublica only asked for a well-structured and well-documented dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped. Since our dataset contains all categorical and string entries, minimal statistical work can be done aside from some summary statistics of the number of doctors scraped per zipcode, state, etc. 
+# Discussion
 
-#Research Discussion
+This data is useful because, based on information we received from our client, the undertaking of scraping this data from this website had not been reliably undertaken until now. This could be an important resource not just to understanding how prevalent medical malpractice is among this group of doctors immigrants are required to see, but also to find other trends possible within this group. In addition, we know that this will potentially help immigrants who are being taken advantage of by the current system, in which no protections are put in place against malpractice violations.
 
-At this time, we have been able to work out a code that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different locations including Northampton, Miami, and a remote location in Arizona. The alternative to this code would have been to manually find and log every individual doctor recommended by the website, and as such this method is both less time consuming and easier to replicate for ProPublica or, possibly, other sources in the future. 
+#Limitations 
 
-This data is useful, because, based on information we received from our client, the undertaking of scraping this data from this website had not been reliably undertaken until now. This could be an important resource not just to understanding how prevalent medical malpractice is among this group of doctors immigrants are required to see, but also to find other trends possible within this group. In addition, we know that this will potentially help immigrants who are being taken advantage of by the current system, in which no protections are put in place against malpractice violations.
-
-However, there were a number of limitations we have with the current research and our product. Because of the method in which the website is set up, in order to get a full list of all of the doctors in the country, the code must be run multiple times from multiple origin points. If one needs just one region, this code will work much more quickly, but will not grant the user a full look at all of the doctors that are recommended by uscis.gov. This means that, even though we determined that this was the best example of code we could use, because of the format of the website, it still takes a long time to run and must run multiple times. While we hope to give a complete list to ProPublica of all doctors recommended, if they wish to check or if someone else wishes to replicate our work, the process for gathering data is relatively tedious. In addition, this code was written specifically for this particular website, meaning that it likely could not scrape data from a similar or even similar formatted website, as it is largely based on the individual HTML coding of uscis.gov. This makes the overall impact of this code on its own relatively small.
+There were a number of limitations we have with the current research and our product. Because of the method in which the website is set up, in order to get a full list of all of the doctors in the country, the code must be run multiple times from multiple origin points. If one needs just one region, this code will work much more quickly, but will not grant the user a full look at all of the doctors that are recommended by uscis.gov. This means that, even though we determined that this was the best example of code we could use, because of the format of the website, it still takes a long time to run and must run multiple times. While we hope to give a complete list to ProPublica of all doctors recommended, if they wish to check or if someone else wishes to replicate our work, the process for gathering data is relatively tedious. In addition, this code was written specifically for this particular website, meaning that it likely could not scrape data from a similar or even similar formatted website, as it is largely based on the individual HTML coding of uscis.gov. This makes the overall impact of this code on its own relatively small.
 
 In addition, this data was gathered specifically for the use of ProPublica, meaning that we may not be able to spread this data without their express permission. This puts limits on the usefulness of our code, as the data could be used for other projects and transformed if other outlets see fit, particularly because this data has never been gathered before. However, because of ProPublica’s role, we may not be able to share this information. 
 
-In addition, another potential problem is that we do not know exactly how ProPublica plans to use this data set. While we understand the underlying goal, we have not seen the list of doctors that our dataset will be compared to and so we do not know whether or not the data will be used responsibly and ethically. While we understand ProPublica’s mission and stand by it, and trust that our data will help rather than harm people, it is still a concern that is currently on our minds.
+Another potential problem is that we do not know exactly how ProPublica plans to use this data set. While we understand the underlying goal, we have not seen the list of doctors that our dataset will be compared to and so we do not know whether or not the data will be used responsibly and ethically. While we understand ProPublica’s mission and stand by it, and trust that our data will help rather than harm people, it is still a concern that is currently on our minds.
 
 This dataset has the potential to help with many things, in addition to its intended purpose of contributing to this article on green card applicants and medical malpractice, authored by ProPublica. In addition, it could be used to compare doctors being recommended by the government to, for example, general sexual assault charges or other crimes, or just having a greater understanding of the types of medical doctors who are being recommended to immigrants. In addition to the useful information the data gathered provides, the code itself could potentially be manipulated to scrape other websites with more complex HTML formats, or at least help users gain a better understanding of how to potentially scrape these websites. In doing so, this could help to unlock other large databases that are, at this point, hidden to us and difficult to access.
 
-# References {#references .unnumbered}
+# References 
 
-@misc{ProPublica,
-  title = {{ProPublica} The Mission},
-  howpublished = {\url{https://www.propublica.org/about/}},
-  note = {Accessed: 2019-04-17}
-}
 
-@misc{USCIS,
-  title = {{USCIS} Find a doctor},
-  howpublished = {\url{https://my.uscis.gov/findadoctor}},
-  note = {Accessed: 2019-04-17}
-}
-
-@misc{Docker,
-  title = {{Docker} Docker Home Page},
-  howpublished = {\url{https://www.docker.com}},
-  note = {Accessed: 2019-04-17}
-}
-
-@misc{RSelenium,
-  title = {{RSelenium} R Bindings for Selenium 2.0 Remote WebDriver},
-  howpublished = {\url{http://ropensci.github.io/RSelenium/}},
-  note = {Accessed: 2019-04-17}
-}
-
-@misc{rvest,
-  title = {{rvest} Easily Harvest},
-  howpublished = {\url{http://rvest.tidyverse.org}},
-  note = {Accessed: 2019-04-17}
-}
-
-@misc{dplyr,
-  title = {{dplyr} A Grammar of Data Manipulation},
-  howpublished = {\url{https://dplyr.tidyverse.org}},
-  note = {Accessed: 2019-04-17}
-}
-
-@misc{tidyverse,
-  title = {{tidyverse} Tidyverse},
-  howpublished = {\url{https://www.tidyverse.org}},
-  note = {Accessed: 2019-04-17}
-}
 
