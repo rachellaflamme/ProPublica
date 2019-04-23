@@ -7,7 +7,7 @@
 
 - Ru: I tried improving our for-loop but didn't get too far. I haven't been feeling well for the past few weeks and can only spend minimum time on the computer.  
 
-- Maggie:
+- Maggie: We discovered that there actually was a point where the website terminated showing new results (500 miles from the inputted zip code), so I compiled a list of cities in the US to search from. Started going over ethical implications of project.
 
 ### What is it that you're struggling with right now?
 
@@ -20,7 +20,8 @@
   I tried making a while loop instead of a for loop, but the while loop only scrapes the first ten doctors. I can't tell what it's doing. 
   I haven't found the best possible way to count the number of pages given by a particular search. 
 
-- Maggie: 
+- Maggie: At this point, mainly compiling all of the needed data from the website (as some of it still needs to be scraped) and getting it to the point that it is presentable.
+
 
 ### What are you planning to do next week?
 
@@ -28,7 +29,7 @@
 
 - Ru: Improve code? and build out full data set. 
 
-- Maggie: 
+- Maggie: Hopefully complete data gathering and putting this data into presentable format.
 
 
 ## 2019-04-16
