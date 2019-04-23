@@ -5,6 +5,7 @@ This code allows us to scrape the United States Citizenship and Immigration Serv
 # Installation
 
 1. Install the following packages into R if you already have not done so.
+
 +`install.packages("RSelenium")` This code can be found here: https://github.com/ropensci/RSelenium
 +`install.packages("xml2")`
 +`install.packages("rvest")`
