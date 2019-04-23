@@ -1,3 +1,36 @@
+## 2019-04-23
+
+
+### What did you do this week? 
+
+- Rachel: 
+
+- Ru: I tried improving our for-loop but didn't get too far. 
+
+- Maggie:
+
+### What is it that you're struggling with right now?
+
+- Rachel:
+
+- Ru: Steps of what we need:
+  1. We need to scrape data multiple times from different locations. 
+  We can scrape with the current code we have. However, our for-loop is hard-coded so it will be breaking at some points and we are not certain if the number we put in will be sufficient for all the different locations. Therefore, we may need to change the for-loop to accomodate different places.
+  Problem: I don't know how best to do this and can only spend a short time on the computer per given period, unfortunately. 
+  I tried making a while loop instead of a for loop, but the while loop only scrapes the first ten doctors. I can't tell what it's doing. 
+  I haven't found the best possible way to count the number of pages given by a particular search. 
+
+- Maggie: 
+
+### What are you planning to do next week?
+
+- Rachel:  
+
+- Ru: Improve code? and build out full data set. 
+
+- Maggie: 
+
+
 ## 2019-04-16
 
 
@@ -5,7 +38,7 @@
 
 - Rachel: Worked on running the code for multiple areas around the US to build a fuller data set.
 
-- Ru: Started working on final project for the paper and finalizing cleaning code.
+- Ru: Started working on final paper for the project and finalizing cleaning code.
 
 - Maggie: Confirmed code was working properly and would continue to do so. Discussed possible ethical problems with what we are doing. Started working on final report for the project.
 
