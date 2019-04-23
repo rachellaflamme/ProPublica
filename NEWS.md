@@ -3,7 +3,7 @@
 
 ### What did you do this week? 
 
-- Rachel: 
+- Rachel: I was only able to work on our final essay this week. Due to limited internet access/firewall issues in China, I was unable to do much else.
 
 - Ru: I tried improving our for-loop but didn't get too far. 
 
@@ -11,7 +11,7 @@
 
 ### What is it that you're struggling with right now?
 
-- Rachel:
+- Rachel: I'm not quite sure because I haven't met with the rest of the team yet. I believe we are still working on scraping from multiple locations across the US.
 
 - Ru: Steps of what we need:
   1. We need to scrape data multiple times from different locations. 
@@ -24,7 +24,7 @@
 
 ### What are you planning to do next week?
 
-- Rachel:  
+- Rachel:  Build our full data set and submit it.
 
 - Ru: Improve code? and build out full data set. 
 
