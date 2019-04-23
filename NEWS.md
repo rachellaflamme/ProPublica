@@ -5,7 +5,7 @@
 
 - Rachel: I was only able to work on our final essay this week. Due to limited internet access/firewall issues in China, I was unable to do much else.
 
-- Ru: I tried improving our for-loop but didn't get too far. 
+- Ru: I tried improving our for-loop but didn't get too far. I haven't been feeling well for the past few weeks and can only spend minimum time on the computer.  
 
 - Maggie:
 
