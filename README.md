@@ -6,12 +6,12 @@ This code allows us to scrape the United States Citizenship and Immigration Serv
 
 1. Install the following packages into R if you already have not done so.
 
-+`install.packages("RSelenium")` This code can be found here: https://github.com/ropensci/RSelenium
-+`install.packages("xml2")`
-+`install.packages("rvest")`
-+`install.packages("dplyr")`
-+`install.packages("purr")`
-+`install.packages("tidyverse")`
++ `install.packages("RSelenium")` This code can be found here: https://github.com/ropensci/RSelenium
++ `install.packages("xml2")`
++ `install.packages("rvest")`
++ `install.packages("dplyr")`
++ `install.packages("purr")`
++ `install.packages("tidyverse")`
 
 2. Download Docker. This program is needed to save data from scraped pages. This software can be found here: https://www.docker.com/get-started
 
