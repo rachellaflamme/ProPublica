@@ -169,6 +169,46 @@
 \newcommand{\lorem}{{\bf LOREM}}
 \newcommand{\ipsum}{{\bf IPSUM}}
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 
 
@@ -208,14 +248,13 @@ Rachel LaFlamme\textsuperscript{\getAff{Smith College}}\\
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-This project aims to scrape data from an interactive government website
-that has no endpoint urls using R and Docker. Our client, ProPublica
-wants to find out how many doctors recommended by the US government to
-green card applicants have outstanding malpractice suits against them.
-However, they do not know who these doctors are and where they are
-located. Our focus is, therefore, to collect information of all the
-doctors on the US immigration website by scraping the government
-website.
+Our client, ProPublica wants to find out how many doctors recommended by
+the US government to green card applicants have outstanding malpractice
+suits against them. However, they do not know who these doctors are and
+where they are located. Our focus is, therefore, to collect information
+of all the doctors on the US immigration website by scraping the
+government website. This project aims to scrape data from an interactive
+government website that has no endpoint urls using R and Docker.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step.
@@ -224,14 +263,12 @@ website.
 \linenumbers
 
 % Use "Eq" instead of "Equation" for equation citations.
-\section{Introduction}\label{introduction}
-
-We worked under the direct instruction of ProPublica for their article
-on medical malpractice among doctors recommended to green card
-applicants. The question they were trying to answer with this research
-was \emph{How many doctors recommended by the US government to green
-card applicants have outstanding malpractice suits against them?} This
-is the main question our research is attempting to help answer by
+\#Introduction We worked under the direct instruction of ProPublica for
+their article on medical malpractice among doctors recommended to green
+card applicants. The question they were trying to answer with this
+research was \emph{How many doctors recommended by the US government to
+green card applicants have outstanding malpractice suits against them?}
+This is the main question our research is attempting to help answer by
 supplying them data to support their assumptions.
 
 More specifically within this project, we are trying to answer \emph{Who
@@ -239,18 +276,16 @@ are the doctors being recommended to green card applicants, and how many
 are there?}. As there is no reliable and searchable database released by
 the government or any other entity that can be compared with a list of
 doctors with malpractice suits against them, it is our job to create
-this database for the use of ProPublica in their article.
+this database for ProPublica for them to use in their article.
 
-\section{Background}\label{background}
-
-ProPublica is a news website that is focused on investigative journalism
-that ``expose{[}s{]} abuses of power and betrayals of the public trust
-by government, business, and other institutions, using the moral force
-of investigative journalism to spur reform through the sustained
-spotlighting of wrongdoing.'' {[}1{]} It was established in 2008 in New
-York, NY, and continues to uphold this mission statement in a variety of
-disciplines, including but not limited to politics, civil rights, and
-education.
+\#Background ProPublica is a news website that is focused on
+investigative journalism that ``expose{[}s{]} abuses of power and
+betrayals of the public trust by government, business, and other
+institutions, using the moral force of investigative journalism to spur
+reform through the sustained spotlighting of wrongdoing.'' {[}1{]} It
+was established in 2008 in New York, NY, and continues to uphold this
+mission statement in a variety of disciplines, including but not limited
+to politics, civil rights, and education.
 
 ProPublica plans on writing an upcoming article on doctors who have
 malpractice claims against them, but are still being recommended by the
@@ -318,44 +353,48 @@ Because of this, we looked for other options for R to interact with the
 webpage in order to bypass the non-changing url but still scrape the
 unique html pages accurately and effectively.
 
-\section{Methods}\label{methods}
+\#Methods We collected the doctors' data using the package
+\texttt{rvest} for web-scraping, \texttt{RSelenium} for web navigation
+and an external platform Docker for virtual interaction with the web
+browser.
 
-We collected the doctors' data using the package rvest for web-scraping,
-RSelenium for web navigation and an external platform Docker for virtual
-interaction with the web browser.
-
-Docker is a platform to develop, deploy, and run applications inside
-containers{[}2{]}. We were able to virtually interact with the USCIS
-website by connecting to a port in Docker and opening Chrome and this
-enabled us to control and see what was happening on the website at a
-given time. Initially, Docker was installed before installing and
-loading the necessary R Packages. The command
-\texttt{docker\ run\ -d\ -p\ 4445:4444\ selenium/standalone-chrome} was
-then run in the R Terminal after we had installed our packages. This
-command sets up the virtual Chrome container to enable interaction with
-the Chrome web browser. In order to check if Docker is running, one can
-type in \texttt{docker\ ps}. We eventually open the browser using
-RSelenium commands before scraping our data.
-
-RSelenium is a package in R which helps one connect to a Selenium server
-{[}3{]}. This server in turn connects to the Chrome web browser and
-hence allowed us to automate our webscraping experience. RSelenium is
-responsible not only for opening and closing the browser, but it allowed
-us to virtually navigate the web page and automatically control the
-scraping. This was especially useful as our website had no endpoint urls
-and hence could not rely on more traditional web scraping methods. In
-addition, it made the process of scraping the data faster as one can
-simply allow the code to run and scrape multiple pages without needing
-to manually click the specific website.
-
-While RSelenium was responsible for most of the web manouvering, the
-package we used for scraping the data from each of the pages was
-\texttt{rvest} {[}4{]}. This package makes harvesting data from a
-website easy as it can find specific html nodes, and their children. It
-also allows one to use both XPaths and CSS selectors so though we
-eventually stuck to using basic elements, we were not limited to one
-option. As a side note, we chose to use CSS selectors for web navigation
-with the RSelenium package.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Docker is a platform to develop, deploy, and run applications inside
+  containers{[}2{]}. We were able to virtually interact with the USCIS
+  website by connecting to a port in Docker and opening Chrome and this
+  enabled us to control and see what was happening on the website at a
+  given time. Initially, Docker was installed before installing and
+  loading the necessary R Packages. The command
+  \texttt{docker\ run\ -d\ -p\ 4445:4444\ selenium/standalone-chrome}
+  was then run in the R Terminal as a shell command after we had
+  installed our packages. This command sets up the virtual Chrome
+  container to enable interaction with the Chrome web browser. In order
+  to check if Docker is running, one can type in \texttt{docker\ ps}. We
+  eventually open the browser using RSelenium commands before scraping
+  our data.
+\item
+  RSelenium is a package in R which helps one connect to a Selenium
+  server {[}3{]}. This server in turn connects to the Chrome web browser
+  and hence allowed us to automate our webscraping experience. RSelenium
+  is responsible not only for opening and closing the browser, but it
+  allowed us to virtually navigate the web page and automatically
+  control the scraping. This was especially useful as our website had no
+  endpoint urls and hence could not rely on more traditional web
+  scraping methods. In addition, it made the process of scraping the
+  data faster as one can simply allow the code to run and scrape
+  multiple pages without needing to manually click the specific website.
+\item
+  While RSelenium was responsible for most of the web manouvering, the
+  package we used for scraping the data from each of the pages was
+  \texttt{rvest} {[}4{]}. This package makes harvesting data from a
+  website easy as it can find specific html nodes, and their children.
+  It also allows one to use both XPaths and CSS selectors so though we
+  eventually stuck to using basic elements, we were not limited to one
+  option. As a side note, we chose to use CSS selectors for web
+  navigation with the RSelenium package.
+\end{enumerate}
 
 We created a function to scrape this data and took advantage of the
 purrr package in R to map all our scraped elements together. This
@@ -366,9 +405,7 @@ facility and entries with no phone numbers listed. To clean up our data,
 \texttt{dplyr} and \texttt{tidyverse} were used for text-processing the
 such that zipcodes, states, and cities, were in separate columns from
 the rest of the address in the resulting doctors' dataset
-{[}5{]}{[}6{]}. At the moment, this function is running in a for loop
-but will be converted to a while loop in order to allow for different
-state scenarios.
+{[}5{]}{[}6{]}.
 
 The final code written to collect the doctors' information allows a user
 to input one zipcode at a time in order to scrape data. Once that
@@ -383,16 +420,14 @@ the nearest doctors within a 500 miles radius. As such, we have also
 manually entered different zipcodes in different parts of the USA so as
 to capture all the doctors in the country and create different datasets.
 
-\section{Results}\label{results}
-
-At this time, we have been able to work out a code that accurately
-scrapes the website of all doctors within a 500-mile radius of a
-starting zip code, at which time the website no longer has a `next'
+\#Results At this time, we have been able to build an algorithm that
+accurately scrapes the website of all doctors within a 500-mile radius
+of a starting zip code, at which time the website no longer has a `next'
 button. Then the code must run separately from a different origin point
 in order to find more doctors recommended by the website. At this point,
 we have run the code from three different locations including
 Northampton, Miami, and a remote location in Arizona and are still
-scraping the other locations. Propublica asked for a dataset that is
+scraping the other locations. ProPublica asked for a dataset that is
 organized by the following variables: name, address, city, state,
 zipcode, and phone number which is representative of all the
 government-approved doctors in the entirety of the United States at the
@@ -401,19 +436,33 @@ dataset contains all categorical and string entries, minimal statistical
 work can be done aside from some summary statistics of the number of
 doctors scraped per zipcode, state, etc.(Results to follow)
 
-\section{Discussion}\label{discussion}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{path <-}\StringTok{ "~/Desktop/Laptop Migration/WeeklyUpdates/Final Paper /RadiusMap.png"}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(path, }\DataTypeTok{dpi =} \OtherTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{~/Desktop/Laptop Migration/WeeklyUpdates/Final Paper /RadiusMap.png}
+\caption{Radius Map}
+\end{figure}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 This data is useful because, based on information we received from our
-client, the undertaking of scraping this data from this website had not
-been reliably undertaken until now. This could be an important resource
-not just to understanding how prevalent medical malpractice is among
-this group of doctors immigrants are required to see, but also to find
-other trends possible within this group. In addition, we know that this
-will potentially help immigrants who are being taken advantage of by the
+client, the scraping of this data from this website had not been
+reliably undertaken until now. This could be an important resource not
+just to understanding how prevalent medical malpractice is among this
+group of doctors immigrants are required to see, but also to find other
+trends possible within this group. In addition, we know that this will
+potentially help immigrants who are being taken advantage of by the
 current system, in which no protections are put in place against
 malpractice violations.
 
-\section{Limitations}\label{limitations}
+\#Limitations
 
 There were a number of limitations we have with the current research and
 our product. Because of the method in which the website is set up, in
@@ -455,36 +504,31 @@ applicants and medical malpractice, authored by ProPublica. In addition,
 it could be used to compare doctors being recommended by the government
 to, for example, general sexual assault charges or other crimes, or just
 having a greater understanding of the types of medical doctors who are
-being recommended to immigrants. In addition to the useful information
-the data gathered provides, the code itself could potentially be
-manipulated to scrape other websites with more complex HTML formats, or
-at least help users gain a better understanding of how to potentially
-scrape these websites. In doing so, this could help to unlock other
-large databases that are, at this point, hidden to us and difficult to
-access.
+being recommended to immigrants.
 
-\section*{References}\label{references}
+\hypertarget{references}{%
+\section*{References}\label{references}}
 \addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}
-\hypertarget{ref-ProPublica}{}
+\leavevmode\hypertarget{ref-ProPublica}{}%
 1. ProPublica the mission. \url{https://www.propublica.org/about/};
 
-\hypertarget{ref-Docker}{}
+\leavevmode\hypertarget{ref-Docker}{}%
 2. Docker docker home page. \url{https://www.docker.com};
 
-\hypertarget{ref-RSelenium}{}
+\leavevmode\hypertarget{ref-RSelenium}{}%
 3. RSelenium r bindings for selenium 2.0 remote webdriver.
 \url{http://ropensci.github.io/RSelenium/};
 
-\hypertarget{ref-rvest}{}
+\leavevmode\hypertarget{ref-rvest}{}%
 4. rvest easily harvest. \url{http://rvest.tidyverse.org};
 
-\hypertarget{ref-dplyr}{}
+\leavevmode\hypertarget{ref-dplyr}{}%
 5. dplyr a grammar of data manipulation.
 \url{https://dplyr.tidyverse.org};
 
-\hypertarget{ref-tidyverse}{}
+\leavevmode\hypertarget{ref-tidyverse}{}%
 6. tidyverse tidyverse. \url{https://www.tidyverse.org};
 
 \nolinenumbers

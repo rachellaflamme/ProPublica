@@ -62,6 +62,12 @@ The final code written to collect the doctors' information allows a user to inpu
 #Results 
 At this time, we have been able to build an algorithm that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different locations including Northampton, Miami, and a remote location in Arizona and are still scraping the other locations. ProPublica  asked for a dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and have created this dataset. Since our dataset contains all categorical and string entries, minimal statistical work can be done aside from some summary statistics of the number of doctors scraped per zipcode, state, etc.(Results to follow)
 
+```{r, fig.cap = "Radius Map"}
+path <- "~/Desktop/Laptop Migration/WeeklyUpdates/Final Paper /RadiusMap.png"
+knitr::include_graphics(path, dpi = NULL)
+```
+
+
 # Discussion
 
 This data is useful because, based on information we received from our client, the scraping of this data from this website had not been reliably undertaken until now. This could be an important resource not just to understanding how prevalent medical malpractice is among this group of doctors immigrants are required to see, but also to find other trends possible within this group. In addition, we know that this will potentially help immigrants who are being taken advantage of by the current system, in which no protections are put in place against malpractice violations.
