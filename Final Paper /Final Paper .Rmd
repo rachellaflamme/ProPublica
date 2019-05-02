@@ -14,7 +14,7 @@ author:
     affiliation: Smith College
 
 abstract:  
-   Our client, ProPublica wants to find out how many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them. However, they do not know who these doctors are and where they are located. Our focus is, therefore, to collect information of all the doctors on the US immigration website by scraping the government website. This project aims to scrape data from an interactive government website that has no endpoint urls using R and Docker. 
+   Our client, ProPublica wants to know the doctors recommended by the US government to green card applicants who have outstanding malpractice suits against them. However, they do not know who these doctors are and where they are located. Our focus is to collect information of all the doctors on the US immigration website. This project aims to scrape data from an interactive government website that has no endpoint urls using R and Docker so as to give this data to our client. 
 
 
 bibliography: mybibfile.bib
@@ -25,7 +25,7 @@ csl: plos.csl
 #Introduction 
 We worked under the direct instruction of ProPublica for their article on medical malpractice among doctors recommended to green card applicants. The question they were trying to answer with this research was *How many doctors recommended by the US government to green card applicants have outstanding malpractice suits against them?* This is the main question our research is attempting to help answer by supplying them data to support their assumptions.
 
-More specifically within this project, we are trying to answer *Who are the doctors being recommended to green card applicants, and how many are there?*. As there is no reliable and searchable database released by the government or any other entity that can be compared with a list of doctors with malpractice suits against them, it is our job to create this database for ProPublica for them to use in their article.
+More specifically within this project, we are trying to answer *Who are the doctors being recommended to green card applicants, and how many are there?*. As there is no reliable and searchable database released by the government or any other entity that can be compared with a list of doctors with malpractice suits against them, it is our job to create this database for ProPublica for use in their article.
 
 #Background 
 ProPublica is a news website that is focused on investigative journalism that "expose[s] abuses of power and betrayals of the public trust by government, business, and other institutions, using the moral force of investigative journalism to spur reform through the sustained spotlighting of wrongdoing." [@ProPublica] It was established in 2008 in New York, NY, and continues to uphold this mission statement in a variety of disciplines, including but not limited to politics, civil rights, and education.
@@ -47,13 +47,31 @@ For other websites, it is common to see that the search entry appears at the end
 Because of this, we looked for other options for R to interact with the webpage in order to bypass the non-changing url but still scrape the unique html pages accurately and effectively.
 
 #Methods 
-We collected the doctors' data using the package `rvest` for web-scraping, `RSelenium` for web navigation and an external platform Docker for virtual interaction with the web browser.   
+As a starting point, we selected about 40 different zipcodes for scraping our data based on our radius map. We then collected the doctors' data using the package `rvest` for web-scraping, `RSelenium` for web navigation and an external platform Docker for virtual interaction with the web browser. 
 
-1. Docker is a platform to develop, deploy, and run applications inside containers[@Docker]. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome and this enabled us to control and see what was happening on the website at a given time. Initially, Docker was installed before installing and loading the necessary R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal as a shell command after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data.
+```{r, echo = FALSE, fig.cap = "Radius Map", out.width= "50%"}
+path <- "RadiusMap.png"
+knitr::include_graphics(path, dpi = NULL)
+```
 
-2. RSelenium is a package in R which helps one connect to a Selenium server [@RSelenium]. This server in turn connects to the Chrome web browser and hence allowed us to automate our webscraping experience. RSelenium is responsible not only for opening and closing the browser, but it allowed us to virtually navigate the web page and automatically control the scraping. This was especially useful as our website had no endpoint urls and hence could not rely on more traditional web scraping methods. In addition, it made the process of scraping the data faster as one can simply allow the code to run and scrape multiple pages without needing to manually click the specific website. 
+##Tools used 
 
-3. While RSelenium was responsible for most of the web manouvering, the package we used for scraping the data from each of the pages was `rvest ` [@rvest]. This package makes harvesting data from a website easy as it can find specific html nodes, and their children. It also allows one to use both XPaths and CSS selectors so though we eventually stuck to using basic elements, we were not limited to one option. As a side note, we chose to use CSS selectors for web navigation with the RSelenium package.
+##`Docker` 
+
+Docker is a platform to develop, deploy, and run applications inside containers[@Docker]. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome and this enabled us to control and see what was happening on the website at a given time. Initially, Docker was installed before installing and loading the necessary R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal as a shell command after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data. 
+
+```{r Fig2, echo = FALSE, fig.cap = "Docker Setup", out.width= "50%"}
+dock <- "docker_start.png"
+knitr::include_graphics(dock)
+```
+
+##`RSelenium`
+RSelenium is a package in R which helps one connect to a Selenium server [@RSelenium]. This server in turn connects to the Chrome web browser and hence allowed us to automate our webscraping experience. RSelenium is responsible not only for opening and closing the browser, but it allowed us to virtually navigate the web page and automatically control the scraping. This was especially useful as our website had no endpoint urls and hence could not rely on more traditional web scraping methods. In addition, it made the process of scraping the data faster as one can simply allow the code to run, programatically click the Next button on the web page and hence scrape multiple pages without needing to manually click the specific website.  
+
+##`rvest`
+While RSelenium was responsible for most of the web manouvering, the package we used for scraping the data from each of the pages was `rvest ` [@rvest]. This package makes harvesting data from a website easy as it can find specific html nodes, and their children. It also allows one to use both XPaths and CSS selectors so though we eventually stuck to using basic elements, we were not limited to one option. As a side note, we chose to use CSS selectors for web navigation with the RSelenium package.
+
+#Data Collection
 
 We created a function to scrape this data and took advantage of the purrr package in R to map all our scraped elements together. This function was able to scrape all the exception datapoints that contained different or missing nodes from our standard entries with one doctor per medical facility such as multiple approvied doctors working in one facility and entries with no phone numbers listed. To clean up our data, `dplyr` and `tidyverse` were used for text-processing the such that zipcodes, states, and cities, were in separate columns from the rest of the address in the resulting doctors' dataset [@dplyr][@tidyverse].
 
@@ -62,10 +80,7 @@ The final code written to collect the doctors' information allows a user to inpu
 #Results 
 At this time, we have been able to build an algorithm that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different locations including Northampton, Miami, and a remote location in Arizona and are still scraping the other locations. ProPublica  asked for a dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and have created this dataset. Since our dataset contains all categorical and string entries, minimal statistical work can be done aside from some summary statistics of the number of doctors scraped per zipcode, state, etc.(Results to follow)
 
-```{r, fig.cap = "Radius Map"}
-path <- "~/Desktop/Laptop Migration/WeeklyUpdates/Final Paper /RadiusMap.png"
-knitr::include_graphics(path, dpi = NULL)
-```
+
 
 
 # Discussion
