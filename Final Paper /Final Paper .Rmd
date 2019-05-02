@@ -61,6 +61,7 @@ knitr::include_graphics(path, dpi = NULL)
 
 Docker is a platform to develop, deploy, and run applications inside containers[@Docker]. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome and this enabled us to control and see what was happening on the website at a given time. Initially, Docker was installed before installing and loading the necessary R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal as a shell command after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data. 
 
+
 ```{r echo = FALSE, fig.cap = "Docker Setup", out.width= "100%"}
 dock <- "docker_start.png"
 knitr::include_graphics(dock)
@@ -68,6 +69,7 @@ knitr::include_graphics(dock)
 
 ##`RSelenium`
 RSelenium is a package in R which helps one connect to a Selenium server [@RSelenium]. This server in turn connects to the Chrome web browser and hence allowed us to automate our webscraping experience. RSelenium is responsible not only for opening and closing the browser, but it allowed us to virtually navigate the web page and automatically control the scraping. This was especially useful as our website had no endpoint urls and hence could not rely on more traditional web scraping methods. In addition, it made the process of scraping the data faster as one can simply allow the code to run, programatically click the Next button on the web page and hence scrape multiple pages without needing to manually click the specific website.
+
 
 ```{r echo = FALSE, fig.cap = "Illustration of Doker and RSelenium Interaction", out.width= "100%"}
 knitr::include_graphics("docker_selenium.png")
