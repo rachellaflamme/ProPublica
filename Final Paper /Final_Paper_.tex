@@ -237,8 +237,8 @@ More specifically within this project, we are trying to answer \emph{Who
 are the doctors being recommended to green card applicants, and how many
 are there?}. As there is no reliable and searchable database released by
 the government or any other entity that can be compared with a list of
-doctors with malpractice suits against them, it is our job to create
-this database for ProPublica for use in their article.
+doctors with malpractice suits against them, we will collect this data
+and create this database for ProPublica for use in their article.
 
 \section{Background}\label{background}
 
@@ -256,66 +256,68 @@ malpractice claims against them, but are still being recommended by the
 government to green card applicants. In order for an applicant to
 receive a green card, they must have an appointment and full examination
 with a state-sanctioned doctor. All of these recommended doctors can be
-found on the government's immigration website, my.uscis.gov/findadoctor.
+found on the government's \href{my.uscis.gov/findadoctor}{immigration
+website}.
 
-The concern is that, because this examination is necessary for green
-card applicants and if something goes wrong, they are concerned that
-they may not receive their green card if they report any cases of
-malpractice by these doctors. ProPublica has collected testimonies of
-green card applicants that have experienced instances that would
-constitute malpractice, but did not report it to either the government
-or any other entity in fear of not being able to immigrate, which means
-that these doctors are still practicing and still being recommended by
-the government for these examinations.
+Because this examination is necessary for green card applicants and if
+something goes wrong, the applicants are usually concerned that they may
+not receive their green card if they report any cases of malpractice by
+these doctors. ProPublica has collected testimonies of green card
+applicants that have experienced instances that would constitute
+malpractice, but did not report it to either the government or any other
+entity in fear of not being able to immigrate, which means that these
+doctors are still practicing and still being recommended by the
+government for these examinations.
 
 While these testimonies appear to be the main part of the upcoming
-article, ProPublica would also like to include a data element by
+article, ProPublica would like to back their claims using data by
 comparing doctors who are known to have malpractice suits filed against
 them in the past with doctors who are recommended to green card
-applicants via the government website. While ProPublica currently has a
-list of the doctors with malpractice violations, there is no reliable
+applicants via the government website. ProPublica currently has a list
+of the doctors with malpractice violations, but there is no reliable
 list of doctors approved by the goverment to give these examinations.
 
-Our job was to collect the names and information of all of the doctors
-found on my.uscis.gov/findadoctor and compile them into an easily
-understood file that could then be compared with the preexisting list of
-doctors with known malpractice suits. In order to do this, we had to
-scrape the data found on this website.
+We were responsible for data collection of the names and contact
+information of all of the doctors found on the
+\href{my.uscis.gov/findadoctor}{website} and compilation of this data
+into an easily understood file that could be compared with the
+preexisting list of doctors with known malpractice suits. In order to do
+this, we scraped the data found on this website.
 
-We feel that this research is significant, because, if these violations
-are taking place, this is a clear violation of the safety of immigrants
-to this country. These people are in a vulnerable position because of
-their status as immigrants, and thus could be taken advantage of. If
-this is happening, it is important to expose it, and using tools such as
-data analysis, which is what ProPublica will be doing with this
-research, can help to accomplish this.
+This research is significant because allowing abusive doctors to work
+does not only encourage them to not abide by the
+\href{https://en.wikipedia.org/wiki/Hippocratic_Oath}{Hippocratic Oath}
+risks the safety of immigrants while violating human rights. The
+immigrants are in a vulnerable position because of their non-permanent
+residential status, and thus could be taken advantage of. Additionally,
+they may not be aware of some of the laws regarding professional
+services in the US. This project will help expose the doctors and will
+be a helpful aid in making sure that no future malpractices will occur.
 
-Our aim was to create a dataset based on the entries listed on the USCIS
-Find a Doctor website. Each entry on the website contains the name of
-the medical facility, name of the government-recommended doctor or
-doctors, and the address and phone number of the facility. However, the
-search bar on the website can only be used to search for doctors using
-US zipcode or city name. This creates an issue when initially thinking
-about how to build an algorithm because there are approximately 42,000
-zipcodes in the U.S. and no reliable dataset that contains all the
-current zipcodes. The website is also structured in such a way that
-there are only 10 entries per webpage; however, when the user clicks the
-next button, they can see the doctors that are from a further radius
-than the initially typed zipcode. They can click the next button to span
-an approximately 500 mile radius before the website no longer provides a
+We created a dataset based on the entries listed on the USCIS Find a
+Doctor website. Each entry on the website contains the name of the
+medical facility, name of the government-recommended doctor or doctors,
+and the address and phone number of the facility. However, the search
+bar on the website can only be used to search for doctors using US
+zipcode or city name. Given that there are approximately 42,000 zipcodes
+in the U.S. and no reliable dataset that contains all the current
+zipcodes. The website is also structured in such a way that there are
+only 10 entries per webpage; however, when the user clicks the next
+button, they can see the doctors that are from a further radius than the
+initially typed zipcode. They can click the next button to span an
+approximately 500 mile radius before the website no longer provides a
 `next' button.
 
 For other websites, it is common to see that the search entry appears at
 the end of the url which would allow each url to have a single
-corresponding html page. However, with the USCIS site, there are
+corresponding html page. On the other hand, the USCIS website contains
 thousands of html pages housed under one url. The website has a static
 url of https://my.uscis.gov/findadoctor regardless of the search entry
-and this eliminates a plethora of web-scraping methods such as get() and
-post().
+and this eliminates a plethora of traditional web-scraping methods.
 
-Because of this, we looked for other options for R to interact with the
-webpage in order to bypass the non-changing url but still scrape the
-unique html pages accurately and effectively.
+We therefore looked for other methods for R to interact with the webpage
+in order to bypass the non-changing url but still scrape the unique html
+pages accurately and effectively.
 
 \section{Methods}\label{methods}
 
@@ -326,7 +328,7 @@ doctors' data using the package \texttt{rvest} for web-scraping,
 for virtual interaction with the web browser.
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{RadiusMap} \caption{Radius Map}\label{fig:unnamed-chunk-1}
+\includegraphics[width=1\linewidth]{RadiusMap} \caption{Radius Map}\label{fig:unnamed-chunk-1}
 \end{figure}
 
 \subsection{Tools used}\label{tools-used}
@@ -344,11 +346,10 @@ then run in the R Terminal as a shell command after we had installed our
 packages. This command sets up the virtual Chrome container to enable
 interaction with the Chrome web browser. In order to check if Docker is
 running, one can type in \texttt{docker\ ps}. We eventually open the
-browser using RSelenium commands before scraping our data. Figure
-\ref{fig:Fig2}
+browser using RSelenium commands before scraping our data.
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{docker_start} \caption{Docker Setup}\label{fig:Fig2}
+\includegraphics[width=1\linewidth]{docker_start} \caption{Docker Setup}\label{fig:unnamed-chunk-2}
 \end{figure}
 
 \subsection{\texorpdfstring{\texttt{RSelenium}}{RSelenium}}\label{rselenium}
@@ -364,6 +365,10 @@ addition, it made the process of scraping the data faster as one can
 simply allow the code to run, programatically click the Next button on
 the web page and hence scrape multiple pages without needing to manually
 click the specific website.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{docker_selenium} \caption{Illustration of Doker and RSelenium Interaction}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \subsection{\texorpdfstring{\texttt{rvest}}{rvest}}\label{rvest}
 
@@ -401,6 +406,10 @@ been written in such a way that an actual user can keep clicking to find
 the nearest doctors within a 500 miles radius. As such, we have also
 manually entered different zipcodes in different parts of the USA so as
 to capture all the doctors in the country and create different datasets.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{final_scrape} \caption{Illustration of final scraping method}\label{fig:unnamed-chunk-4}
+\end{figure}
 
 \section{Results}\label{results}
 
