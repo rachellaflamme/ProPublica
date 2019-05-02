@@ -92,7 +92,14 @@ knitr::include_graphics("final_scrape.png")
 
 
 #Results 
-At this time, we have been able to build an algorithm that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different locations including Northampton, Miami, and a remote location in Arizona and are still scraping the other locations. ProPublica  asked for a dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and have created this dataset. Since our dataset contains all categorical and string entries, minimal statistical work can be done aside from some summary statistics of the number of doctors scraped per zipcode, state, etc.(Results to follow)
+We have been able to build an algorithm that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. 
+
+ProPublica  asked for a dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and have created this dataset.
+
+We have run the code from 40 different origin points throughout the United States, covering the entirety of the continental United States, Alaska, and Hawaii. We found that there are 7,982 unique entries for doctors and locations, after removing duplicates in areas that overlap. We also found that California has the most doctors of any individual state, and New Hampshire has the least. In addition, we found that there are 3,287 zip codes that have at least one doctor recommended.
+
+Unfortunately, because we do not have access to ProPublica's dataset on medical malpractice claims, we cannot include a comparison analysis in our results.
+
 
 
 
