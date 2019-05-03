@@ -120,9 +120,3 @@ This dataset has the potential to help with many things, in addition to its inte
 
 # References 
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 051a6c6e4444e83ebe7df4deb9ffb131e4eb5bd6
