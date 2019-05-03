@@ -25,6 +25,7 @@ remDr$open()
 
 ```
 
+
 ```{r, include=FALSE}
 
 url = "https://my.uscis.gov/findadoctor"
@@ -32,7 +33,7 @@ url = "https://my.uscis.gov/findadoctor"
 #url we want to open in R
 
 #First step: Opening chrome in a web browser, and navigating to our page
-rD <- rsDriver(chromever ="73.0.3683.68")
+rD <- rsDriver(chromever ="latest")
  remDr <- rD[["client"]]
    #navigate to the webpage 
    remDr$navigate(url)
