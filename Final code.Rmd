@@ -41,13 +41,13 @@ rD <- rsDriver(chromever ="73.0.3683.68")
    #find the search bar where we put in zipcode
    zipElem <- remDr$findElement("css selector","#form_data_search_location")
    #let RSelenium type in the zipcode and search 
-   zipElem$sendKeysToElement(list("01063","\uE007"))  #"\uE007" is the key for "ENTER"
+   zipElem$sendKeysToElement(list("43004","\uE007"))  #"\uE007" is the key for "ENTER"
+   
 ```
 
 
 
 ```{r function to scrape data}
-
 my_fun <- function(x) {
   name <- x %>%
     rvest::html_nodes(".name")%>%
@@ -72,55 +72,155 @@ my_fun <- function(x) {
   if (length(telephone) < 1) {
     telephone <- NA
   }
+  doctor_telephone <- x %>%
+    rvest::html_nodes(".doctor-telephone")%>%
+    rvest::html_text(trim = TRUE)
+  if (length(doctor_telephone) < 1) {
+    doctor_telephone <- NA
+  }
   return(list(name = name,
                 address = address, 
                 multiple_docs = multiple,
                 city = city, 
-                telephone = telephone))
+                telephone = telephone,
+                doctor_telephone = doctor_telephone[1]))
 }
 ```
 
+```{r}
+#loop through all the pages 
+src <- xml2::read_html(remDr$getPageSource()[[1]])
+  
+Juneau_alaska <- src %>%
+    rvest::html_nodes(".col-span-10") %>%
+    purrr::map_df(my_fun)
+#do not know how many pages 
+View(Juneau_alaska)
+```
+
+
+
 
 ```{r}
-doctors =data.frame()
-for (i in 1:20){
+screen=data.frame()
+
+
+for (i in 1:2){
   src <- xml2::read_html(remDr$getPageSource()[[1]])
   
   data <- src %>%
     rvest::html_nodes(".col-span-10") %>%
     purrr::map_df(my_fun)
-  
-  remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")$clickElement()
-Sys.sleep(1)
-  doctors = rbind(doctors,data)
+ Sys.sleep(1) 
+remDr$findElement("css selector","#populated_addresses > div:nth-child(11) > div > div.next > button")$clickElement()
+ screen  = rbind(screen,data)
 }
+
+View(screen)
+
 ```
 
 ```{r}
 remDr$close()
-   # stop the selenium server
+   #stop the selenium server
    rD[["server"]]$stop()
 ``` 
 
 
 #Cleaning up data 
 ```{r}
-doctors <- doctors %>%
+screen <- screen %>%
   replace_na(list(multiple_docs = "")) %>%
   unnest() %>%
   unite("doctor_name", name, multiple_docs, sep = "") %>%
   mutate(doctor_name = gsub("NA$", "", doctor_name)) %>%
+  unite("phone_number", telephone, doctor_telephone, sep = "")%>%
+  mutate(phone_number = gsub("NA", "", phone_number)) %>%
   mutate(zipcode = str_extract_all(city, "\\d")) %>%
   mutate(city_test = gsub('[0-9]+', '', city)) %>%
   mutate(state = str_sub(city_test,-3,-1)) %>%
   mutate(city = substr(city_test, 1, nchar(city_test)-3)) %>%
-  select(doctor_name, address, city, state, zipcode, telephone)
+  ##unite("doctor_name", name, multiple_docs, sep = "") %>%
+  select(doctor_name, address, city, state, zipcode, telephone,doctor_telephone)
   
-doctors$zipcode <-map(doctors$zipcode, paste, collapse = "")
+screen$zipcode <-map(screen$zipcode, paste, collapse = "")
+screen$zipcode <-as.character(screen$zipcode)
+write.csv(screen,"screen.csv")
+View(screen)
+```
 
-write.csv(doctors,"doctors.csv")
+```{r, eval= FALSE}
+filenames <- list.files(path="~/Desktop/Senior Year /Spring 2019/ProPublica/Capstone_zipcodes/",pattern="*.csv")
+filenames
+setwd("~/Desktop/Senior Year /Spring 2019/ProPublica/Capstone_zipcodes")
+doctor_files <-lapply(filenames,read_csv)
+final_doctors <- do.call(rbind,doctor_files)
+#View(final_doctors)
+
+final_doctors <- unite("phone_number", telephone, doctor_telephone, sep = "")%>%
+  mutate(phone_number = gsub("NA", "", phone_number))
+final_doctors = unique(final_doctors)
+#write.csv(final_doctors,"final-doctors.csv")
+```
+
+```{r}
+states = final_doctors%>%
+  group_by(state)%>%
+  summarise(n = n())
+```
+
+```{r}
+free_zipcode <- read_csv("free-zipcode.csv")
+free_zipcode = free_zipcode%>%
+  rename(zipcode = Zipcode)
+maped=left_join(final_doctors,free_zipcode,by = "zipcode")
+```
+
+```{r include= FALSE}
+
+```
+
+```{r}
+
+```
+```{r}
+doc_by_state = left_join(final_doctors,usa, by = "state")
+View(doc_by_state)
 ```
 
 
 
+
+
+```{r}
+library(mapproj)
+ggplot(data = doc_by_state)+
+  geom_polygon(aes(x= long, y=lat, fill = region, group = region), color = "white")+
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45)+
+  guides(fill = FALSE) 
+  
+```
+
+
+
+
+
+```{r}
+#usa$region = toupper(usa$region)
+final_doctors = final_doctors%>%
+  select(-X1)%>%
+  filter(!state %in% c("A-","L-","Y-"))
+#$region <- tolower(state.name[final_doctors$state])
+
+final_doctors%>%
+  group_by(state)%>%
+  count()
+```
+
+
+```{r}
+final_doctors%>%
+  group_by(zipcode)%>%
+  count()
+```
 
