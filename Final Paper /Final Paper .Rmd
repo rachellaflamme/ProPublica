@@ -49,59 +49,66 @@ We therefore looked for other methods for R to interact with the webpage in orde
 #Methods 
 As a starting point, we selected about 40 different zipcodes for scraping our data based on our radius map. We then collected the doctors' data using the package `rvest` for web-scraping, `RSelenium` for web navigation and an external platform Docker for virtual interaction with the web browser. 
 
-```{r, echo = FALSE, fig.cap = "Radius Map", out.width= "100%"}
+```{r, echo = FALSE, fig.cap = "The following map shows the 500-mile radius starting from the 40 selected zipcodes that were chosen to scrape the entire area of the United States.", out.width= "100%"}
 path <- "RadiusMap.png"
 knitr::include_graphics(path, dpi = NULL)
 ```
 
 
-##Tools used 
+## Tools used 
 
-##`Docker` 
+## `Docker` 
 
 Docker is a platform to develop, deploy, and run applications inside containers[@Docker]. We were able to virtually interact with the USCIS website by connecting to a port in Docker and opening Chrome and this enabled us to control and see what was happening on the website at a given time. Initially, Docker was installed before installing and loading the necessary R Packages. The command `docker run -d -p 4445:4444 selenium/standalone-chrome` was then run in the R Terminal as a shell command after we had installed our packages. This command sets up the virtual Chrome container to enable interaction with the Chrome web browser. In order to check if Docker is running, one can type in `docker ps`. We eventually open the browser using RSelenium commands before scraping our data. 
 
 
-```{r echo = FALSE, fig.cap = "Docker Setup", out.width= "100%"}
+```{r echo = FALSE, fig.cap = "The following code is written in R Terminal to set up a Docker container in R", out.width= "100%"}
 dock <- "docker_start.png"
 knitr::include_graphics(dock)
 ```
 
-##`RSelenium`
+## `RSelenium`
 RSelenium is a package in R which helps one connect to a Selenium server [@RSelenium]. This server in turn connects to the Chrome web browser and hence allowed us to automate our webscraping experience. RSelenium is responsible not only for opening and closing the browser, but it allowed us to virtually navigate the web page and automatically control the scraping. This was especially useful as our website had no endpoint urls and hence could not rely on more traditional web scraping methods. In addition, it made the process of scraping the data faster as one can simply allow the code to run, programatically click the Next button on the web page and hence scrape multiple pages without needing to manually click the specific website.
 
 
-```{r echo = FALSE, fig.cap = "Illustration of Doker and RSelenium Interaction", out.width= "100%"}
+```{r echo = FALSE, fig.cap = "This shows the code to allow Docker and RSelenium to interact with each other by creating a port and opening Chrome through R", out.width= "100%"}
 knitr::include_graphics("docker_selenium.png")
 ```
 
 
-##`rvest`
+## `rvest`
 While RSelenium was responsible for most of the web manouvering, the package we used for scraping the data from each of the pages was `rvest ` [@rvest]. This package makes harvesting data from a website easy as it can find specific html nodes, and their children. It also allows one to use both XPaths and CSS selectors so though we eventually stuck to using basic elements, we were not limited to one option. As a side note, we chose to use CSS selectors for web navigation with the RSelenium package.
 
-#Data Collection
+# Data Collection
 
 We created a function to scrape this data and took advantage of the purrr package in R to map all our scraped elements together. This function was able to scrape all the exception datapoints that contained different or missing nodes from our standard entries with one doctor per medical facility such as multiple approvied doctors working in one facility and entries with no phone numbers listed. To clean up our data, `dplyr` and `tidyverse` were used for text-processing the such that zipcodes, states, and cities, were in separate columns from the rest of the address in the resulting doctors' dataset [@dplyr][@tidyverse].
 
 The final code written to collect the doctors' information allows a user to input one zipcode at a time in order to scrape data. Once that zipcode is entered, the doctors and facilities on that web page are harvested using `rvest` before moving on to the next page. Clicking to the next page has been automated using `RSelenium` and a for loop was implemented in our code such that for a certain number of times, the website's `Next` button is clicked, moves on to the next page, scrapes that page and so on. The website itself has been written in such a way that an actual user can keep clicking to find the nearest doctors within a 500 miles radius. As such, we have also manually entered different zipcodes in different parts of the USA so as to capture all the doctors in the country and create different datasets.
 
 
-```{r echo = FALSE, fig.cap = "Illustration of final scraping method", out.width= "100%"}
+```{r echo = FALSE, fig.cap = "This figure shows the code of the final scraping method which scraps a webpage then interacts with the website to click 'next' before scraping the following page.", out.width= "100%"}
 knitr::include_graphics("final_scrape.png")
 ```
 
 
-#Results 
-At this time, we have been able to build an algorithm that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer has a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. At this point, we have run the code from three different locations including Northampton, Miami, and a remote location in Arizona and are still scraping the other locations. ProPublica  asked for a dataset that is organized by the following variables: name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and have created this dataset. Since our dataset contains all categorical and string entries, minimal statistical work can be done aside from some summary statistics of the number of doctors scraped per zipcode, state, etc.(Results to follow)
+# Results 
+We have been able to build an algorithm that accurately scrapes the website of all doctors within a 500-mile radius of a starting zip code, at which time the website no longer shows a ‘next’ button.  Then the code must run separately from a different origin point in order to find more doctors recommended by the website. 
 
+ProPublica  asked for a dataset that is organized by the following variables: doctor name, address, city, state, zipcode, and phone number which is representative of all the government-approved doctors in the entirety of the United States at the time the website was scraped and we have created this dataset.
 
+We have run the code from 40 different origin points throughout the United States, covering the entirety of the continental United States, Alaska, and Hawaii. We found that there are 7,982 unique entries for doctors and locations, after removing duplicates in areas that overlap. We also found that California has the most doctors of any individual state, and New Hampshire has the least. In addition, we found that there are 3,287 zip codes that have at least one doctor recommended.
 
+Unfortunately, because we do not have access to ProPublica's dataset on medical malpractice claims, we cannot include a comparison analysis in our results.
+
+```{r echo = FALSE, fig.cap = "The figure above displaus all the doctors that we have scraped from the USCIS website based on their workplace zipcodes.", out.width= "100%"}
+knitr::include_graphics("ResultsMap.png")
+```
 
 # Discussion
 
 This data is useful because, based on information we received from our client, the scraping of this data from this website had not been reliably undertaken until now. This could be an important resource not just to understanding how prevalent medical malpractice is among this group of doctors immigrants are required to see, but also to find other trends possible within this group. In addition, we know that this will potentially help immigrants who are being taken advantage of by the current system, in which no protections are put in place against malpractice violations.
 
-#Limitations 
+# Limitations 
 
 There were a number of limitations we have with the current research and our product. Because of the method in which the website is set up, in order to get a full list of all of the doctors in the country, the code must be run multiple times from multiple origin points. If one needs just one region, this code will work much more quickly, but will not grant the user a full look at all of the doctors that are recommended by uscis.gov. This means that, even though we determined that this was the best example of code we could use, because of the format of the website, it still takes a long time to run and must run multiple times. While we hope to give a complete list to ProPublica of all doctors recommended, if they wish to check or if someone else wishes to replicate our work, the process for gathering data is relatively tedious. In addition, this code was written specifically for this particular website, meaning that it likely could not scrape data from a similar or even similar formatted website, as it is largely based on the individual HTML coding of uscis.gov. This makes the overall impact of this code on its own relatively small.
 
@@ -112,6 +119,7 @@ Another potential problem is that we do not know exactly how ProPublica plans to
 This dataset has the potential to help with many things, in addition to its intended purpose of contributing to this article on green card applicants and medical malpractice, authored by ProPublica. In addition, it could be used to compare doctors being recommended by the government to, for example, general sexual assault charges or other crimes, or just having a greater understanding of the types of medical doctors who are being recommended to immigrants.
 
 # References 
+
 
 
 
