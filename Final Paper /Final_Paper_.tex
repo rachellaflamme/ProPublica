@@ -223,14 +223,12 @@ and Docker so as to give this data to our client.
 \linenumbers
 
 % Use "Eq" instead of "Equation" for equation citations.
-\section{Introduction}\label{introduction}
-
-We worked under the direct instruction of ProPublica for their article
-on medical malpractice among doctors recommended to green card
-applicants. The question they were trying to answer with this research
-was \emph{How many doctors recommended by the US government to green
-card applicants have outstanding malpractice suits against them?} This
-is the main question our research is attempting to help answer by
+\#Introduction We worked under the direct instruction of ProPublica for
+their article on medical malpractice among doctors recommended to green
+card applicants. The question they were trying to answer with this
+research was \emph{How many doctors recommended by the US government to
+green card applicants have outstanding malpractice suits against them?}
+This is the main question our research is attempting to help answer by
 supplying them data to support their assumptions.
 
 More specifically within this project, we are trying to answer \emph{Who
@@ -240,16 +238,14 @@ the government or any other entity that can be compared with a list of
 doctors with malpractice suits against them, we will collect this data
 and create this database for ProPublica for use in their article.
 
-\section{Background}\label{background}
-
-ProPublica is a news website that is focused on investigative journalism
-that ``expose{[}s{]} abuses of power and betrayals of the public trust
-by government, business, and other institutions, using the moral force
-of investigative journalism to spur reform through the sustained
-spotlighting of wrongdoing.'' {[}1{]} It was established in 2008 in New
-York, NY, and continues to uphold this mission statement in a variety of
-disciplines, including but not limited to politics, civil rights, and
-education.
+\#Background ProPublica is a news website that is focused on
+investigative journalism that ``expose{[}s{]} abuses of power and
+betrayals of the public trust by government, business, and other
+institutions, using the moral force of investigative journalism to spur
+reform through the sustained spotlighting of wrongdoing.'' {[}1{]} It
+was established in 2008 in New York, NY, and continues to uphold this
+mission statement in a variety of disciplines, including but not limited
+to politics, civil rights, and education.
 
 ProPublica plans on writing an upcoming article on doctors who have
 malpractice claims against them, but are still being recommended by the
@@ -319,21 +315,21 @@ We therefore looked for other methods for R to interact with the webpage
 in order to bypass the non-changing url but still scrape the unique html
 pages accurately and effectively.
 
-\section{Methods}\label{methods}
-
-As a starting point, we selected about 40 different zipcodes for
-scraping our data based on our radius map. We then collected the
+\#Methods As a starting point, we selected about 40 different zipcodes
+for scraping our data based on our radius map. We then collected the
 doctors' data using the package \texttt{rvest} for web-scraping,
 \texttt{RSelenium} for web navigation and an external platform Docker
 for virtual interaction with the web browser.
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{RadiusMap} \caption{Radius Map}\label{fig:unnamed-chunk-1}
+\includegraphics[width=1\linewidth]{RadiusMap} \caption{The following map shows the 500-mile radius starting from the 40 selected zipcodes that were chosen to scrape the entire area of the United States.}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-\subsection{Tools used}\label{tools-used}
+\hypertarget{tools-used}{%
+\subsection{Tools used}\label{tools-used}}
 
-\subsection{\texorpdfstring{\texttt{Docker}}{Docker}}\label{docker}
+\hypertarget{docker}{%
+\subsection{\texorpdfstring{\texttt{Docker}}{Docker}}\label{docker}}
 
 Docker is a platform to develop, deploy, and run applications inside
 containers{[}2{]}. We were able to virtually interact with the USCIS
@@ -349,10 +345,11 @@ running, one can type in \texttt{docker\ ps}. We eventually open the
 browser using RSelenium commands before scraping our data.
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{docker_start} \caption{Docker Setup}\label{fig:unnamed-chunk-2}
+\includegraphics[width=1\linewidth]{docker_start} \caption{The following code is written in R Terminal to set up a Docker container in R}\label{fig:unnamed-chunk-2}
 \end{figure}
 
-\subsection{\texorpdfstring{\texttt{RSelenium}}{RSelenium}}\label{rselenium}
+\hypertarget{rselenium}{%
+\subsection{\texorpdfstring{\texttt{RSelenium}}{RSelenium}}\label{rselenium}}
 
 RSelenium is a package in R which helps one connect to a Selenium server
 {[}3{]}. This server in turn connects to the Chrome web browser and
@@ -367,10 +364,11 @@ the web page and hence scrape multiple pages without needing to manually
 click the specific website.
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{docker_selenium} \caption{Illustration of Doker and RSelenium Interaction}\label{fig:unnamed-chunk-3}
+\includegraphics[width=1\linewidth]{docker_selenium} \caption{This shows the code to allow Docker and RSelenium to interact with each other by creating a port and opening Chrome through R}\label{fig:unnamed-chunk-3}
 \end{figure}
 
-\subsection{\texorpdfstring{\texttt{rvest}}{rvest}}\label{rvest}
+\hypertarget{rvest}{%
+\subsection{\texorpdfstring{\texttt{rvest}}{rvest}}\label{rvest}}
 
 While RSelenium was responsible for most of the web manouvering, the
 package we used for scraping the data from each of the pages was
@@ -381,7 +379,8 @@ eventually stuck to using basic elements, we were not limited to one
 option. As a side note, we chose to use CSS selectors for web navigation
 with the RSelenium package.
 
-\section{Data Collection}\label{data-collection}
+\hypertarget{data-collection}{%
+\section{Data Collection}\label{data-collection}}
 
 We created a function to scrape this data and took advantage of the
 purrr package in R to map all our scraped elements together. This
@@ -408,28 +407,42 @@ manually entered different zipcodes in different parts of the USA so as
 to capture all the doctors in the country and create different datasets.
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{final_scrape} \caption{Illustration of final scraping method}\label{fig:unnamed-chunk-4}
+\includegraphics[width=1\linewidth]{final_scrape} \caption{This figure shows the code of the final scraping method which scraps a webpage then interacts with the website to click 'next' before scraping the following page.}\label{fig:unnamed-chunk-4}
 \end{figure}
 
-\section{Results}\label{results}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
-At this time, we have been able to build an algorithm that accurately
-scrapes the website of all doctors within a 500-mile radius of a
-starting zip code, at which time the website no longer has a `next'
-button. Then the code must run separately from a different origin point
-in order to find more doctors recommended by the website. At this point,
-we have run the code from three different locations including
-Northampton, Miami, and a remote location in Arizona and are still
-scraping the other locations. ProPublica asked for a dataset that is
-organized by the following variables: name, address, city, state,
-zipcode, and phone number which is representative of all the
-government-approved doctors in the entirety of the United States at the
-time the website was scraped and have created this dataset. Since our
-dataset contains all categorical and string entries, minimal statistical
-work can be done aside from some summary statistics of the number of
-doctors scraped per zipcode, state, etc.(Results to follow)
+We have been able to build an algorithm that accurately scrapes the
+website of all doctors within a 500-mile radius of a starting zip code,
+at which time the website no longer shows a `next' button. Then the code
+must run separately from a different origin point in order to find more
+doctors recommended by the website.
 
-\section{Discussion}\label{discussion}
+ProPublica asked for a dataset that is organized by the following
+variables: doctor name, address, city, state, zipcode, and phone number
+which is representative of all the government-approved doctors in the
+entirety of the United States at the time the website was scraped and we
+have created this dataset.
+
+We have run the code from 40 different origin points throughout the
+United States, covering the entirety of the continental United States,
+Alaska, and Hawaii. We found that there are 7,982 unique entries for
+doctors and locations, after removing duplicates in areas that overlap.
+We also found that California has the most doctors of any individual
+state, and New Hampshire has the least. In addition, we found that there
+are 3,287 zip codes that have at least one doctor recommended.
+
+Unfortunately, because we do not have access to ProPublica's dataset on
+medical malpractice claims, we cannot include a comparison analysis in
+our results.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{ResultsMap} \caption{The figure above displaus all the doctors that we have scraped from the USCIS website based on their workplace zipcodes.}\label{fig:unnamed-chunk-5}
+\end{figure}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 This data is useful because, based on information we received from our
 client, the scraping of this data from this website had not been
@@ -441,7 +454,8 @@ potentially help immigrants who are being taken advantage of by the
 current system, in which no protections are put in place against
 malpractice violations.
 
-\section{Limitations}\label{limitations}
+\hypertarget{limitations}{%
+\section{Limitations}\label{limitations}}
 
 There were a number of limitations we have with the current research and
 our product. Because of the method in which the website is set up, in
@@ -485,28 +499,29 @@ to, for example, general sexual assault charges or other crimes, or just
 having a greater understanding of the types of medical doctors who are
 being recommended to immigrants.
 
-\section*{References}\label{references}
+\hypertarget{references}{%
+\section*{References}\label{references}}
 \addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}
-\hypertarget{ref-ProPublica}{}
+\leavevmode\hypertarget{ref-ProPublica}{}%
 1. ProPublica the mission. \url{https://www.propublica.org/about/};
 
-\hypertarget{ref-Docker}{}
+\leavevmode\hypertarget{ref-Docker}{}%
 2. Docker docker home page. \url{https://www.docker.com};
 
-\hypertarget{ref-RSelenium}{}
+\leavevmode\hypertarget{ref-RSelenium}{}%
 3. RSelenium r bindings for selenium 2.0 remote webdriver.
 \url{http://ropensci.github.io/RSelenium/};
 
-\hypertarget{ref-rvest}{}
+\leavevmode\hypertarget{ref-rvest}{}%
 4. rvest easily harvest. \url{http://rvest.tidyverse.org};
 
-\hypertarget{ref-dplyr}{}
+\leavevmode\hypertarget{ref-dplyr}{}%
 5. dplyr a grammar of data manipulation.
 \url{https://dplyr.tidyverse.org};
 
-\hypertarget{ref-tidyverse}{}
+\leavevmode\hypertarget{ref-tidyverse}{}%
 6. tidyverse tidyverse. \url{https://www.tidyverse.org};
 
 \nolinenumbers
