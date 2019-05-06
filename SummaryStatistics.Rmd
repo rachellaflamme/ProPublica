@@ -1,0 +1,49 @@
+---
+title: "SummaryStatistics"
+author: "Rachel LaFlamme"
+date: "4/29/2019"
+output: html_document
+---
+```{r}
+library(usmap)
+library(ggplot2)
+library(tidyverse)
+library(plyr)
+library(dplyr)
+```
+
+```{r}
+final <- read.csv("~/Desktop/final-doctors.csv", header = TRUE) 
+# state <- read.csv("~/Desktop/statelatlong.csv", header = TRUE)
+zipcodes <- read.csv("~/Desktop/zipcode.csv", header = TRUE)
+# state$state <- state$State
+zipcodes <- zipcodes %>%
+  select(Zipcode, City, State, Lat, Long)
+
+final <- final %>%
+  select(doctor_name, address, city, state, zipcode, phone_number)
+final <- unique(final)
+
+names(zipcodes)[names(zipcodes) == "Zipcode"] <- "zipcode"
+
+joined <- join(final, zipcodes, by = "zipcode", type = "left")
+
+test <- joined %>%
+  select(zipcode) %>%
+  group_by(zipcode) %>%
+  count() 
+```
+
+```{r}
+map_world <- borders(database = "usa", colour = "gray50", fill = "#383838")
+
+ggplot()+ map_world +  # Plot the map
+  geom_point(data = joined,  # Specify the data for geom_point()
+             aes(x = Long,  # Specify the x axis as longitude
+                 y = Lat,  # Specify the y axis as latitude
+                 colour = "state"),
+             alpha = 0.2,
+             size = 1) +
+ggtitle("Locations of the US-approved Doctors to perform Medical Examinations \nfor Green Card Applicants")
+```
+
