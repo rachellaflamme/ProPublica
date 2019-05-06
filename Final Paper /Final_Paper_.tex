@@ -408,6 +408,7 @@ to capture all the doctors in the country and create different datasets.
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{final_scrape} \caption{This figure shows the code of the final scraping method which scraps a webpage then interacts with the website to click 'next' before scraping the following page.}\label{fig:unnamed-chunk-4}
+<<<<<<< HEAD
 \end{figure}
 
 \hypertarget{results}{%
@@ -443,6 +444,41 @@ our results.
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
+=======
+\end{figure}
+
+\section{Results}\label{results}
+
+We have been able to build an algorithm that accurately scrapes the
+website of all doctors within a 500-mile radius of a starting zip code,
+at which time the website no longer shows a `next' button. Then the code
+must run separately from a different origin point in order to find more
+doctors recommended by the website.
+
+ProPublica asked for a dataset that is organized by the following
+variables: doctor name, address, city, state, zipcode, and phone number
+which is representative of all the government-approved doctors in the
+entirety of the United States at the time the website was scraped and we
+have created this dataset.
+
+We have run the code from 40 different origin points throughout the
+United States, covering the entirety of the continental United States,
+Alaska, and Hawaii. We found that there are 7,982 unique entries for
+doctors and locations, after removing duplicates in areas that overlap.
+We also found that California has the most doctors of any individual
+state, and New Hampshire has the least. In addition, we found that there
+are 3,287 zip codes that have at least one doctor recommended.
+
+Unfortunately, because we do not have access to ProPublica's dataset on
+medical malpractice claims, we cannot include a comparison analysis in
+our results.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{ResultsMap} \caption{The figure above displaus all the doctors that we have scraped from the USCIS website based on their workplace zipcodes.}\label{fig:unnamed-chunk-5}
+\end{figure}
+
+\section{Discussion}\label{discussion}
+>>>>>>> 7c0402aaff00e9f505637798dfdc48525ad0aeec
 
 This data is useful because, based on information we received from our
 client, the scraping of this data from this website had not been
