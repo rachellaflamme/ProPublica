@@ -26,3 +26,7 @@ This code pulls its information from the website, https://my.uscis.gov/findadoct
 This code should run if the above installation steps are executed. 
 
 Because of the structure of the USCIS website, after the code is run once, the dataset produced will only collect doctors within a 500 mile radius from an arbitarily chosen zipcode: 01063. In order to produce a full dataset of the entire United States, the following code must be editted.
+
+![Zipcode Change in Code](zipcodecodechange.png)
+
+We have compiled a list of 40 zipcodes to scrape the entirety of the United States which is documented in 'Zip Codes.xlsx'. In order to get the full data set, you must change the underlined zipcode after that zipcode radius is scraped to each of the zipcodes within the .xlsx file. Once that is completed, the code will combine all the datasets into one larger dataset and clean the data by removing duplicates and using regular expression to split the address entries into city, state, address, and zipcode columns.
