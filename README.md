@@ -2,6 +2,8 @@
 
 This code allows us to scrape the United States Citizenship and Immigration Services website, which contains all of the doctors recommended by the government for screenings before immigrants are granted greencards. This research is being done for the news website ProPublica. These are instructions on how to properly run this code, as numerious software packages are required.
 
+This data was used to support the reporting of the following ProPublica News Article: https://www.propublica.org/article/despite-audit-doctors-with-checkered-records-can-still-decide-fate-of-green-card-seekers
+
 # Installation
 
 1. Install the following packages into R if you already have not done so.
